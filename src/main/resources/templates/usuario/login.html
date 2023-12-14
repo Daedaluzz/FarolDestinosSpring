@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Entre com suas credenciais para iniciar a seção</p>
+
+    <form method="POST" th:action="@{/login}">
+      <div>
+        <input type="email" placeholder="E-mail" name="username" required>
+        <div>
+          <div>
+            
+          </div>
+        </div>
+      </div>
+      <div>
+        <input type="password" placeholder="Senha" name="password" required>
+        <div>
+          <div>
+            
+          </div>
+        </div>
+      </div>
+          <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>
