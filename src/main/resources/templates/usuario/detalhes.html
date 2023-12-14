@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DETALHES DO USUÁRIO</h1>
+    <h3 th:text="${usuario.nome}">Alow</h3>
+    <h4 th:text="${usuario.tipoUsuario}">User</h4>
+    <h4 th:text="${usuario.id}"></h4>
+
+    <h3>Dados Pessoais</h3>
+    <p th:text="${usuario.cpf}">CPF</p>
+    <p th:text="${usuario.email}">E-MAIL</p>
+    <p th:text="${usuario.telefone}">TELEFONE</p>
+    <p th:text="${#temporals.format(usuario.dataNascimento)}">DATA DE NASCIMENTO</p>
+    <a th:href="@{/usuarios}">USUARIOS</a>
+
+    
+</body>
+</html>

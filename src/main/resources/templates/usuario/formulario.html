@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>EDITAR USUÁRIO</h1>
+    <form method="POST" th:object="${usuario}" style="display: flex; flex-direction: column; width: 40%;">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <label for="nome">Nome</label>
+        <input type="text" placeholder="Nome do funcionario" th:field="*{nome}">
+        <input type="hidden" th:field="*{id}" readonly>
+        <label for="tipoUsuario">Tipo do Usuário</label>
+        <select th:field="*{tipoUsuario}">
+            <option th:each="tipoUsuario:${tiposUsuario}" th:text="${tipoUsuario}" th:value="${tipoUsuario}">USER</option>
+        </select>
+
+        <label for="cpf">CPF</label>
+        <input type="text" placeholder="CPF" th:field="*{cpf}">
+        <label for="email">E-mail</label>
+        <input type="email" placeholder="dale@dale.com" th:field="*{email}">
+        <label for="telefone">Telefone</label>
+        <input type="tel" placeholder="(31) 90777-0777" th:field="*{telefone}">
+        <label for="dataNascimento">Data de Nascimento</label>
+        <input type="date" th:field="*{dataNascimento}">
+        <fieldset th:if="${usuario.id == null}">
+        <label for="senha">Senha</label>
+        <input type="text" placeholder="CPF" th:field="*{senha}">
+    </fieldset>
+        <button type="submit">SALVAR</button>
+        
+    </form>
+    <br>
+    <br>
+    <a th:href="@{/usuarios}">USUARIOS</a>
+</body>
+
+</html>

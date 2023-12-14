@@ -38,7 +38,7 @@ public class UsuarioController {
 	public ModelAndView cadastrar() {
 		ModelAndView modelAndView = new ModelAndView("usuario/formulario");
 		modelAndView.addObject("usuario", new Usuario());
-		modelAndView.addObject("tipoUsuario", TipoUsuario.values());
+		modelAndView.addObject("tiposUsuario", TipoUsuario.values());
 		return modelAndView;
 	}
 
@@ -46,7 +46,7 @@ public class UsuarioController {
 	public ModelAndView editar(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("usuario/formulario");
 		modelAndView.addObject("usuario", usuarioRepository.getReferenceById(id));
-		modelAndView.addObject("tipoUsuario", TipoUsuario.values());
+		modelAndView.addObject("tiposUsuario", TipoUsuario.values());
 		return modelAndView;
 	}
 

@@ -8,7 +8,14 @@
 </head>
 
 <body>
-
+	<a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+	<br><br>
+	 <a th:href="@{/logout}">
+        Logout
+      </a>
+      <br><br>
+    <a th:href="@{/usuarios/cadastrar}">CADASTRAR USUARIO</a>
+    <br>
     <table class="table table-hover text-nowrap">
         <thead>
             <tr>
@@ -19,7 +26,7 @@
                 <th>Telefone</th>
                 <th>Data de Nascimento</th>
                 <th>Tipo de Usuário</th>
-                <th>Ações VAMO DALE vamo dale vamo dale</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>

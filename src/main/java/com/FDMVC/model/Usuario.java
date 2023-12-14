@@ -3,6 +3,7 @@ package com.FDMVC.model;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import com.FDMVC.enums.TipoUsuario;
 
@@ -27,7 +28,7 @@ public class Usuario extends Entidade{
 	private String telefone;
 	
     @Column(name = "data_nascimento", nullable = false)
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    @DateTimeFormat(iso = ISO.DATE)
 	private LocalDate dataNascimento;
 
 	@Column(name = "tipo_usuario", nullable = false, length = 80)
