@@ -41,9 +41,9 @@ public class Passagem extends Entidade{
     @Enumerated(EnumType.STRING)
 	private Terminal terminal;
     
-    @Column(name ="data_da_compra", nullable = false)
-    @DateTimeFormat(pattern = "dd/MM/YYYY HH:mm:ss")
-	private LocalDateTime Embarque;
+    @Column(name ="hora_do_embarque", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm")
+	private LocalDateTime embarque;
 	
     @Column(nullable = false)
     @NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
@@ -104,11 +104,11 @@ public class Passagem extends Entidade{
 	}
 
 	public LocalDateTime getEmbarque() {
-		return Embarque;
+		return embarque;
 	}
 
 	public void setEmbarque(LocalDateTime embarque) {
-		Embarque = embarque;
+		this.embarque = embarque;
 	}
 
 	public BigDecimal getPreco() {

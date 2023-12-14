@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+	<a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+	<br><br>
+	 <a th:href="@{/logout}">
+        Logout
+      </a>
+      <br><br>
+    <a th:href="@{/passagens/cadastrar}">CADASTRAR PASSAGEM</a>
+    <br>
+    <table class="table table-hover text-nowrap">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cidade de Destino</th>
+                <th>Cidade de Origem</th>
+                <th>Número do Bilhete</th>
+                <th>Assento</th>
+                <th>Portão</th>
+                <th>Terminal</th>
+                <th>Embarque</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="passagem : ${passagens}">
+                <td th:text="${passagem.id}">ID</td>
+                <td th:text="${passagem.cidadeDestino}">Cidade de Destino</td>
+                <td th:text="${passagem.cidadeOrigem}">Cidade de Origem</td>
+                <td th:text="${passagem.numeroBilhete}">Número do Bilhete</td>
+                <td th:text="${passagem.assento}">Assento</td>
+                <td th:text="${passagem.portao}">Portão</td>
+                <td th:text="${passagem.terminal}">Terminal</td>
+                <td th:text="${#temporals.format(passagem.embarque)}">Embarque</td>
+                <td th:text="${passagem.preco}">Preço</td>
+                <td>
+                    <div>
+                        <a type="button" th:href="@{/passagens/{id} (id=${passagem.id})}">DETALHES
+
+                        </a>
+                        <a type="button" th:href="@{/passagens/{id}/editar (id=${passagem.id})}">EDITAR
+
+                        </a>
+                        <a type="button"th:href="@{/passagens/{id}/excluir (id=${passagem.id})}"
+                            onclick="return confirm('Tem certeza que deseja excluir a passagem?');">EXCLUIR
+                        </a>
+                    </div>
+                <td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

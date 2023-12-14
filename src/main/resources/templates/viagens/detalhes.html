@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Dados da Passagem</h3>
+    <p th:text="${passagem.id}">ID da Passagem</p>
+    <p th:text="${passagem.cidadeDestino}">Cidade de Destino</p>
+    <p th:text="${passagem.cidadeOrigem}">Cidade de Origem</p>
+    <p th:text="${passagem.numeroBilhete}">Número do Bilhete</p>
+    <p th:text="${passagem.assento}">Assento</p>
+    <p th:text="${passagem.portao}">Portão</p>
+    <p th:text="${passagem.terminal}">Terminal</p>
+    <p th:text="${#temporals.format(passagem.embarque)}">Embarque</p>
+    <p th:text="${passagem.preco}">Preço</p>
+
+
+    <a th:href="@{/passagens}">PASSAGENS</a>
+
+    
+</body>
+</html>

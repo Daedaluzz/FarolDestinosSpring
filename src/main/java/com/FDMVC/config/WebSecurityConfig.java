@@ -14,7 +14,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import com.FDMVC.enums.TipoUsuario;
 import com.FDMVC.services.UserDetailsServiceImpl;
 
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig{
@@ -28,7 +27,7 @@ public class WebSecurityConfig{
                 .csrf(Customizer.withDefaults())
                 .authorizeHttpRequests(authorize -> authorize
                 		.requestMatchers("/css/**").permitAll()
-                        .requestMatchers("/img/**").permitAll()
+                        .requestMatchers("/images/**").permitAll()
                         .requestMatchers("/js/**").permitAll()
                         .requestMatchers("/**/cadastrar").hasAuthority(TipoUsuario.ADMIN.toString())
         	            .requestMatchers("/**/editar").hasAuthority(TipoUsuario.ADMIN.toString())

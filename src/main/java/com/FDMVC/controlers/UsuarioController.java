@@ -13,7 +13,6 @@ import com.FDMVC.model.Usuario;
 import com.FDMVC.repositories.UsuarioRepository;
 import com.FDMVC.utils.SenhaUtils;
 
-
 @Controller
 @RequestMapping("/usuarios")
 public class UsuarioController {

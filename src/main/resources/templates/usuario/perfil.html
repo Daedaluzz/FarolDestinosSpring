@@ -15,8 +15,10 @@
     <p th:text="${usuario.email}">E-MAIL</p>
     <p th:text="${usuario.telefone}">TELEFONE</p>
     <p th:text="${#temporals.format(usuario.dataNascimento)}">DATA DE NASCIMENTO</p>
+    <br>
     <a th:href="@{/usuarios}">USUARIOS</a>
-
+<br>
+<a th:href="@{/passagens}">PASSAGENS</a>
     
 </body>
 </html>

@@ -33,11 +33,6 @@ public class Runner implements CommandLineRunner{
 		String senhaEncriptada = SenhaUtils.encode("0000");
 		admin0.setSenha(senhaEncriptada);
 		usuarioRepository.save(admin0);
-			
-
-
-
-		
 	}
 
 }
