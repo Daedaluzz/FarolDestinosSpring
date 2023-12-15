@@ -1,8 +1,6 @@
 package com.FDMVC.controlers;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.FDMVC.model.Pacote;
@@ -64,28 +61,16 @@ public class PacoteController {
 	}
 
 	@PostMapping("/cadastrar")
-	public String cadastrar(@ModelAttribute Pacote pacote, @RequestParam("passagem") List<Long> pacotePassagens) {
-		Set<Passagem> passagens = new HashSet<Passagem>();
-		for (Long i : pacotePassagens) {
-			passagens.add(passagemRepository.getReferenceById(i));
-		}
-		pacote.setPassagensP(passagens);
+	public String cadastrar(@ModelAttribute Pacote pacote) {
 		pacoteRepository.save(pacote);
 		return "redirect:/pacotes";
 	}
 
 	@PostMapping("/{id}/editar")
-	public String editar(@ModelAttribute Pacote pacote, @PathVariable Long id,
-			@RequestParam("passagem") List<Long> pacotePassagens) {
-		Set<Passagem> passagens = new HashSet<Passagem>();
-		for (Long i : pacotePassagens) {
-			passagens.add(passagemRepository.getReferenceById(i));
-		}
-		pacote.setPassagensP(passagens);
+	public String editar(@ModelAttribute Pacote pacote, @PathVariable Long id) {
 		pacoteRepository.save(pacote);
 		return "redirect:/pacotes";
 	}
-
 	@GetMapping("/{id}/excluir")
 	public String excluir(@PathVariable Long id) {
 		pacoteRepository.deleteById(id);

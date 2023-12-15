@@ -41,7 +41,7 @@
                 <td th:text="${pacote.promocao}">TRUE</td>
                 <td th:text="${#numbers.formatCurrency(pacote.preco)}">6.300,00</td>
                 <td>
-                    <span style="display: block;" th:each="passagem : ${passagens}"
+                    <span style="display: block;" th:each="passagem : ${pacote.passagensP}"
                         th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeOrigem}+' : '+${passagem.id}">
                     </span>
                 </td>

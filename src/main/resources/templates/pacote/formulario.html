@@ -32,12 +32,8 @@
         <label for="preco">Preço do Pacote</label>
         <input type="text" placeholder="2500,00" th:field="*{preco}">
 
-            <input name="passagem" type="checkbox" th:each="passagem : ${passagens}" th:value="${passagem.id}"
-                th:text="${passagem.cidadeDestino}+' : '+${passagem.numeroBilhete}" />
-
-
-
-
+            <input name="passagem" type="checkbox" th:each="passagem : ${passagens}" th:field="*{passagensP}" th:value="${passagem.id}"
+                th:text="${passagem.cidadeDestino}+' : '+${passagem.numeroBilhete}"/>
         <button type="submit">SALVAR</button>
     </form>
     <br>
