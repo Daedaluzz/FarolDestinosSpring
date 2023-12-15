@@ -7,16 +7,25 @@
 </head>
 <body>
 
-    <h3>Dados da Passagem</h3>
-    <p th:text="${passagem.id}">ID da Passagem</p>
-    <p th:text="${passagem.cidadeDestino}">Cidade de Destino</p>
-    <p th:text="${passagem.cidadeOrigem}">Cidade de Origem</p>
-    <p th:text="${passagem.numeroBilhete}">Número do Bilhete</p>
-    <p th:text="${passagem.assento}">Assento</p>
-    <p th:text="${passagem.portao}">Portão</p>
-    <p th:text="${passagem.terminal}">Terminal</p>
-    <p th:text="${#temporals.format(passagem.embarque)}">Embarque</p>
-    <p th:text="${passagem.preco}">Preço</p>
+    <h1>Dados da Passagem</h1>
+    <h4>ID da Passagem</h4>
+    <p th:text="${passagem.id}"></p>
+    <h4>Cidade de Destino</h4>
+    <p th:text="${passagem.cidadeDestino}"></p>
+    <h4>Cidade de Origem</h4>
+    <p th:text="${passagem.cidadeOrigem}"></p>
+    <h4>Número do Bilhete</h4>
+    <p th:text="${passagem.numeroBilhete}"></p>
+    <h4>Assento</h4>
+    <p th:text="${passagem.assento}"></p>
+    <h4>Portão</h4>
+    <p th:text="${passagem.portao}"></p>
+    <h4>Terminal</h4>
+    <p th:text="${passagem.terminal}"></p>
+    <h4>Embarque</h4>
+    <p th:text="${#temporals.format(passagem.embarque)}"></p>
+    <h4>Preço da Passagem</h4>
+    <p th:text="${passagem.preco}"></p>
 
 
     <a th:href="@{/passagens}">PASSAGENS</a>

@@ -2,6 +2,7 @@ package com.FDMVC.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,14 +30,14 @@ public class Viagens extends Entidade {
 	joinColumns = @JoinColumn(name = "viagens_id_fk"),
 	inverseJoinColumns = @JoinColumn(name = "pacote_id_fk")
 	)
-	private List<Pacote> pacotes;
+	private List<Pacote> pacotes = new ArrayList<>();
     
 	@ManyToMany
 	@JoinTable(name ="viagens_passagens",
 	joinColumns = @JoinColumn(name = "viagens_id_fk"),
 	inverseJoinColumns = @JoinColumn(name = "passagem_id_fk")
 	)
-	private List<Passagem> passagensV;
+	private List<Passagem> passagensV = new ArrayList<>();
     
     @Column(name ="data_da_compra", nullable = false)
     @DateTimeFormat(pattern = "dd/MM/YYYY HH:mm:ss")

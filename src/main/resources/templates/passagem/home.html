@@ -40,7 +40,7 @@
                 <td th:text="${passagem.portao}">Portão</td>
                 <td th:text="${passagem.terminal}">Terminal</td>
                 <td th:text="${#temporals.format(passagem.embarque)}">Embarque</td>
-                <td th:text="${passagem.preco}">Preço</td>
+                <td th:text="${#numbers.formatCurrency(passagem.preco)}">Preço</td>
                 <td>
                     <div>
                         <a type="button" th:href="@{/passagens/{id} (id=${passagem.id})}">DETALHES

@@ -8,49 +8,53 @@
 </head>
 
 <body>
-	<a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
-	<br><br>
-	 <a th:href="@{/logout}">
+    <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+    <br><br>
+    <a th:href="@{/logout}">
         Logout
-      </a>
-      <br><br>
-    <a th:href="@{/passagens/cadastrar}">CADASTRAR PASSAGEM</a>
+    </a>
+    <br><br>
+    <a th:href="@{/pacotes/cadastrar}">CADASTRAR PACOTE</a>
     <br>
     <table class="table table-hover text-nowrap">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Nome do Pacote</th>
                 <th>Cidade de Destino</th>
-                <th>Cidade de Origem</th>
-                <th>Número do Bilhete</th>
-                <th>Assento</th>
-                <th>Portão</th>
-                <th>Terminal</th>
-                <th>Embarque</th>
+                <th>Dias de Hospedagem</th>
+                <th>Data da Ida</th>
+                <th>Data da Volta</th>
+                <th>Promoção Habilitada</th>
                 <th>Preço</th>
+                <th>Passagens Origem : Destino : ID</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="passagem : ${passagens}">
-                <td th:text="${passagem.id}">ID</td>
-                <td th:text="${passagem.cidadeDestino}">Cidade de Destino</td>
-                <td th:text="${passagem.cidadeOrigem}">Cidade de Origem</td>
-                <td th:text="${passagem.numeroBilhete}">Número do Bilhete</td>
-                <td th:text="${passagem.assento}">Assento</td>
-                <td th:text="${passagem.portao}">Portão</td>
-                <td th:text="${passagem.terminal}">Terminal</td>
-                <td th:text="${#temporals.format(passagem.embarque)}">Embarque</td>
-                <td th:text="${passagem.preco}">Preço</td>
+            <tr th:each="pacote : ${pacotes}">
+                <td th:text="${pacote.id}">ID</td>
+                <td th:text="${pacote.nome}">Praias Litoral Sul</td>
+                <td th:text="${pacote.destino}">Recife</td>
+                <td th:text="${pacote.diasHospedagem}">7</td>
+                <td th:text="${#temporals.format(pacote.ida)}">Ida</td>
+                <td th:text="${#temporals.format(pacote.volta)}">Volta</td>
+                <td th:text="${pacote.promocao}">TRUE</td>
+                <td th:text="${#numbers.formatCurrency(pacote.preco)}">6.300,00</td>
+                <td>
+                    <span style="display: block;" th:each="passagem : ${passagens}"
+                        th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeOrigem}+' : '+${passagem.id}">
+                    </span>
+                </td>
                 <td>
                     <div>
-                        <a type="button" th:href="@{/passagens/{id} (id=${passagem.id})}">DETALHES
+                        <a type="button" th:href="@{/pacotes/{id} (id=${pacote.id})}">DETALHES
 
                         </a>
-                        <a type="button" th:href="@{/passagens/{id}/editar (id=${passagem.id})}">EDITAR
+                        <a type="button" th:href="@{/pacotes/{id}/editar (id=${pacote.id})}">EDITAR
 
                         </a>
-                        <a type="button"th:href="@{/passagens/{id}/excluir (id=${passagem.id})}"
-                            onclick="return confirm('Tem certeza que deseja excluir a passagem?');">EXCLUIR
+                        <a type="button" th:href="@{/pacotes/{id}/excluir (id=${pacote.id})}"
+                            onclick="return confirm('Tem certeza que deseja excluir o pacote?');">EXCLUIR
                         </a>
                     </div>
                 <td>

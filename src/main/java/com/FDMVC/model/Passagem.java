@@ -2,8 +2,10 @@ package com.FDMVC.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import org.hibernate.annotations.NaturalId;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
@@ -27,6 +29,7 @@ public class Passagem extends Entidade{
 	@Column(nullable = false)
 	private String cidadeOrigem;
 	
+	@NaturalId
 	@Column(nullable = false, unique = true)
 	private String numeroBilhete;
 	
@@ -50,10 +53,10 @@ public class Passagem extends Entidade{
 	private BigDecimal preco;
     
 	@ManyToMany(mappedBy = "passagensV", fetch = FetchType.LAZY)
-	private List<Viagens> viagens;
+	private Set<Viagens> viagens = new HashSet<Viagens>();
 	
 	@ManyToMany(mappedBy = "passagensP", fetch = FetchType.LAZY)
-	private List<Pacote> pacotes;
+	private Set<Pacote> pacotes = new HashSet<Pacote>();
 
 	public String getCidadeDestino() {
 		return cidadeDestino;
@@ -119,21 +122,23 @@ public class Passagem extends Entidade{
 		this.preco = preco;
 	}
 
-	public List<Viagens> getViagens() {
+	public Set<Viagens> getViagens() {
 		return viagens;
 	}
 
-	public void setViagens(List<Viagens> viagens) {
+	public void setViagens(Set<Viagens> viagens) {
 		this.viagens = viagens;
 	}
 
-	public List<Pacote> getPacotes() {
+	public Set<Pacote> getPacotes() {
 		return pacotes;
 	}
 
-	public void setPacotes(List<Pacote> pacotes) {
+	public void setPacotes(Set<Pacote> pacotes) {
 		this.pacotes = pacotes;
 	}
+
+
 	
 	
 }

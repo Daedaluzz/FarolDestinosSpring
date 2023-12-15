@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
     <h3 th:text="${usuario.nome}">Alow</h3>
@@ -17,8 +19,10 @@
     <p th:text="${#temporals.format(usuario.dataNascimento)}">DATA DE NASCIMENTO</p>
     <br>
     <a th:href="@{/usuarios}">USUARIOS</a>
-<br>
-<a th:href="@{/passagens}">PASSAGENS</a>
-    
+    <br>
+    <a th:href="@{/passagens}">PASSAGENS</a>
+    <br>
+    <a th:href="@{/pacotes}">PACOTES</a>
 </body>
+
 </html>

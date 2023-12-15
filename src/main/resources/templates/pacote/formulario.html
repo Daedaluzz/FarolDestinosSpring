@@ -8,36 +8,41 @@
 </head>
 
 <body>
-    <h1>EDITAR PASSAGEM</h1>
-    <form method="POST" th:object="${passagem}" style="display: flex; flex-direction: column; width: 40%;">
+    <h1>EDITAR PACOTE</h1>
+    <form method="POST" th:object="${pacote}" style="display: flex; flex-direction: column; width: 40%;">
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
         <input type="hidden" th:field="*{id}" readonly>
-        <label for="cidadeDestino">Cidade de Destino</label>
-        <input type="text" placeholder="Recife" th:field="*{cidadeDestino}">
-        <label for="cidadeOrigem">Cidade de Origem</label>
-        <input type="text" placeholder="Recife" th:field="*{cidadeOrigem}">
-        <label for="numeroBilhete">Numero do Bilhete</label>
-        <input type="text" placeholder="1234" th:field="*{numeroBilhete}">
-        <label for="assento">Assento</label>
-        <input type="text" placeholder="A22" th:field="*{assento}">
-        <label for="portao">Portão</label>
-        <select th:field="*{portao}">
-            <option th:each="portao:${portoes}" th:text="${portao}" th:value="${portao}">1</option>
-        </select>
-        <label for="terminal">Terminal</label>
-        <select th:field="*{terminal}">
-            <option th:each="terminal:${terminais}" th:text="${terminal}" th:value="${terminal}">AZUL</option>
-        </select>
-        <label for="embarque">Data e Hora do Embarque</label>
-        <input type="datetime-local" th:field="*{embarque}">
-        <label for="preco">Preço da Passagem</label>
+        <label for="nome">Nome do Pacote</label>
+        <input type="text" placeholder="Praias Litoral Sul" th:field="*{nome}">
+        <label for="destino">Cidade de Destino</label>
+        <input type="text" placeholder="Recife" th:field="*{destino}">
+        <label for="diasHospedagem">Dias de Hospedagem</label>
+        <input type="text" placeholder="7" th:field="*{diasHospedagem}">
+        <label for="ida">Data e Hora da Ida</label>
+        <input type="datetime-local" th:field="*{ida}">
+        <label for="volta">Data e Hora da Volta</label>
+        <input type="datetime-local" th:field="*{volta}">
+        <div>
+            <p>Habilitar Promoção</p>
+            <label for="sim">Sim</label>
+            <input type="radio" th:field="*{promocao}" value="TRUE" name="promocao">
+            <label for="nao">Não</label>
+            <input type="radio" th:field="*{promocao}" value="FALSE" name="promocao">
+        </div>
+        <label for="preco">Preço do Pacote</label>
         <input type="text" placeholder="2500,00" th:field="*{preco}">
+
+            <input name="passagem" type="checkbox" th:each="passagem : ${passagens}" th:value="${passagem.id}"
+                th:text="${passagem.cidadeDestino}+' : '+${passagem.numeroBilhete}" />
+
+
+
+
         <button type="submit">SALVAR</button>
-        
     </form>
     <br>
     <br>
-    <a th:href="@{/passagens}">PASSAGENS</a>
+    <a th:href="@{/pacotes}">PACOTES</a>
 </body>
 
 </html>
