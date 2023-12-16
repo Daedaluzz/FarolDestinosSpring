@@ -26,7 +26,7 @@
     <p th:text="${#numbers.formatCurrency(pacote.preco)}">6.300,00</p>
     <h4>Passagens do Pacote</h4>
     <p style="display: block;" th:each="passagem : ${pacote.passagensP}"
-    th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeOrigem}+' : '+${passagem.id}">
+    th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
 </p>
     <a th:href="@{/pacotes}">PACOTES</a>
 

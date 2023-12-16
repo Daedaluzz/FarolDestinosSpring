@@ -8,12 +8,12 @@
 </head>
 
 <body>
-	<a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
-	<br><br>
-	 <a th:href="@{/logout}">
+    <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+    <br><br>
+    <a th:href="@{/logout}">
         Logout
-      </a>
-      <br><br>
+    </a>
+    <br><br>
     <a th:href="@{/viagens/cadastrar}">CADASTRAR VIAGEM</a>
     <br>
     <table class="table table-hover text-nowrap">
@@ -23,17 +23,25 @@
                 <th>Nome do Cliente</th>
                 <th>Pacotes</th>
                 <th>Passagens</th>
-                <th>Data da Compra da Viagem</th>
+                <th>Data da Compra</th>
                 <th>Preço Total</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="viagem : ${viagens}">
                 <td th:text="${viagem.id}">ID</td>
-                <td th:text="${viagem.usuario.nome}">Portão</td>
-                <td></td>
-                <td th:text="${#temporals.format(viagem.dataCompra)}"></td>
-                <td th:text="${viagem.precoTotal}"></td>
+                <td th:text="${viagem.usuario.nome}"></td>
+
+                <td><span style="display: block;" th:each="pacote : ${viagem.pacotes}"
+                        th:text="${pacote.nome}+' : '+${pacote.id}">
+                    </span></td>
+                    <td>
+                <span style="display: block;" th:each="passagem : ${viagem.passagensV}"
+                    th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
+                </span>
+            </td>
+                <td th:text="${#temporals.format(viagem.dataCompra, 'dd-MM-yyyy HH:mm')}"></td>
+                <td th:text="${viagem.precoTotal}">ID</td>
                 <td>
                     <div>
                         <a type="button" th:href="@{/viagens/{id} (id=${viagem.id})}">DETALHES
@@ -42,7 +50,7 @@
                         <a type="button" th:href="@{/viagens/{id}/editar (id=${viagem.id})}">EDITAR
 
                         </a>
-                        <a type="button"th:href="@{/viagens/{id}/excluir (id=${viagem.id})}"
+                        <a type="button" th:href="@{/viagens/{id}/excluir (id=${viagem.id})}"
                             onclick="return confirm('Tem certeza que deseja excluir a viagem?');">EXCLUIR
                         </a>
                     </div>

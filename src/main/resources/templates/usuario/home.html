@@ -36,7 +36,7 @@
                 <td th:text="${usuario.cpf}"></td>
                 <td th:text="${usuario.email}"></td>
                 <td th:text="${usuario.telefone}"></td>
-                <td th:text="${#temporals.format(usuario.dataNascimento)}"></td>
+                <td th:text="${#temporals.format(usuario.dataNascimento, 'dd-MM-yyyy')}"></td>
                 <td th:text="${usuario.tipoUsuario}"></td>
                 <td>
                     <div>

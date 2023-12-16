@@ -22,12 +22,12 @@
                 <th>ID</th>
                 <th>Nome do Pacote</th>
                 <th>Cidade de Destino</th>
-                <th>Dias de Hospedagem</th>
                 <th>Data da Ida</th>
                 <th>Data da Volta</th>
-                <th>Promoção Habilitada</th>
-                <th>Preço</th>
+                <th>Dias de Hospedagem</th>
+                <th>Promoção</th>
                 <th>Passagens Origem : Destino : ID</th>
+                <th>Preço</th>
             </tr>
         </thead>
         <tbody>
@@ -35,16 +35,16 @@
                 <td th:text="${pacote.id}">ID</td>
                 <td th:text="${pacote.nome}">Praias Litoral Sul</td>
                 <td th:text="${pacote.destino}">Recife</td>
-                <td th:text="${pacote.diasHospedagem}">7</td>
-                <td th:text="${#temporals.format(pacote.ida)}">Ida</td>
-                <td th:text="${#temporals.format(pacote.volta)}">Volta</td>
+                <td th:text="${#temporals.format(pacote.ida, 'dd-MM-yyyy HH:mm')}">Ida</td>
+                <td th:text="${#temporals.format(pacote.volta, 'dd-MM-yyyy HH:mm')}">Volta</td>
+                <td th:text="${pacote.diasHospedagem}"></td>
                 <td th:text="${pacote.promocao}">TRUE</td>
-                <td th:text="${#numbers.formatCurrency(pacote.preco)}">6.300,00</td>
                 <td>
                     <span style="display: block;" th:each="passagem : ${pacote.passagensP}"
-                        th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeOrigem}+' : '+${passagem.id}">
+                        th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
                     </span>
                 </td>
+                <td th:text="${#numbers.formatCurrency(pacote.preco)}">6.300,00</td>
                 <td>
                     <div>
                         <a type="button" th:href="@{/pacotes/{id} (id=${pacote.id})}">DETALHES

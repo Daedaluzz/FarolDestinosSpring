@@ -7,19 +7,21 @@
 </head>
 <body>
 
-    <h3>Dados da Passagem</h3>
-    <p th:text="${passagem.id}">ID da Passagem</p>
-    <p th:text="${passagem.cidadeDestino}">Cidade de Destino</p>
-    <p th:text="${passagem.cidadeOrigem}">Cidade de Origem</p>
-    <p th:text="${passagem.numeroBilhete}">Número do Bilhete</p>
-    <p th:text="${passagem.assento}">Assento</p>
-    <p th:text="${passagem.portao}">Portão</p>
-    <p th:text="${passagem.terminal}">Terminal</p>
-    <p th:text="${#temporals.format(passagem.embarque)}">Embarque</p>
-    <p th:text="${passagem.preco}">Preço</p>
-
-
-    <a th:href="@{/passagens}">PASSAGENS</a>
+    <h1>Dados da Viagem</h3>
+        <h4>ID</p>
+        <p th:text="${viagem.id}"></p>
+        <h4>Nome do Cliente</h4>
+        <p th:text="${viagem.usuario.nome}">Praias Litoral Sul</p>
+        <h4>Pacotes da Viagem</h4>
+        <p style="display: block;" th:each="pacote : ${viagem.pacotes}" th:text="${pacote.nome}+' : '+${pacote.id}"></p>
+        <h4>Passagens</h4>
+        <p style="display: block;" th:each="passagem : ${viagem.passagensV}"
+        th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
+        <h4>Data da Compra</h4>
+        <p th:text="${#temporals.format(viagem.dataCompra)}"></p>
+        <h4>Preço Total</h4>
+        <p th:text="${#numbers.formatCurrency(viagem.precoTotal)}">6.300,00</p>
+    <a th:href="@{/viagens}">VIAGENS</a>
 
     
 </body>

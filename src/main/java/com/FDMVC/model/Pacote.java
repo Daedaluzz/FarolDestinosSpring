@@ -44,10 +44,10 @@ public class Pacote extends Entidade{
     @NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	private BigDecimal preco;
 	
-	@ManyToMany(mappedBy = "pacotes", fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "pacotes", cascade = {CascadeType.REFRESH})
 	private Set<Viagem> viagens = new HashSet<Viagem>();
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name ="pacote_passagens",
 	joinColumns = @JoinColumn(name = "pacote_id_fk"),
 	inverseJoinColumns = @JoinColumn(name = "passagem_id_fk")
@@ -76,7 +76,7 @@ public class Pacote extends Entidade{
 		return diasHospedagem;
 	}
 
-	public void setDiasHospedagem(int diasHospedagem) {
+	public void setDiasHospedagem(int diasHospedagem) {		
 		this.diasHospedagem = diasHospedagem;
 	}
 

@@ -16,12 +16,12 @@
         <input type="text" placeholder="Praias Litoral Sul" th:field="*{nome}">
         <label for="destino">Cidade de Destino</label>
         <input type="text" placeholder="Recife" th:field="*{destino}">
-        <label for="diasHospedagem">Dias de Hospedagem</label>
-        <input type="text" placeholder="7" th:field="*{diasHospedagem}">
         <label for="ida">Data e Hora da Ida</label>
         <input type="datetime-local" th:field="*{ida}">
         <label for="volta">Data e Hora da Volta</label>
         <input type="datetime-local" th:field="*{volta}">
+        <label for="diasHospedagem">Dias de Hospedagem</label>
+        <input type="text" placeholder="" th:field="*{diasHospedagem}" readonly>
         <div>
             <p>Habilitar Promoção</p>
             <label for="sim">Sim</label>

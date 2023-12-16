@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -25,14 +26,14 @@ public class Viagem extends Entidade {
 	@JoinColumn(name = "usuario_id_fk", nullable = false)
 	private Usuario usuario;
     
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
 	@JoinTable(name ="viagens_pacotes",
 	joinColumns = @JoinColumn(name = "viagem_id_fk"),
 	inverseJoinColumns = @JoinColumn(name = "pacote_id_fk")
 	)
 	private Set<Pacote> pacotes = new HashSet<Pacote>();
     
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name ="viagens_passagens",
 	joinColumns = @JoinColumn(name = "viagem_id_fk"),
 	inverseJoinColumns = @JoinColumn(name = "passagem_id_fk")
@@ -84,9 +85,15 @@ public class Viagem extends Entidade {
 	}
 
 	public void setPrecoTotal(BigDecimal precoTotal) {
+		BigDecimal zero = BigDecimal.valueOf(0);
+		precoTotal = zero;
+		for (Pacote i : pacotes ) {
+			precoTotal= precoTotal.add(i.getPreco());
+		}
+		for(Passagem j : passagensV) {
+			precoTotal = precoTotal.add(j.getPreco());
+		}
 		this.precoTotal = precoTotal;
 	}
-
-
-    
+	    
 }

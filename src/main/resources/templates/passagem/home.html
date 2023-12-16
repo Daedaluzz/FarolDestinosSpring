@@ -39,7 +39,7 @@
                 <td th:text="${passagem.assento}">Assento</td>
                 <td th:text="${passagem.portao}">Portão</td>
                 <td th:text="${passagem.terminal}">Terminal</td>
-                <td th:text="${#temporals.format(passagem.embarque)}">Embarque</td>
+                <td th:text="${#temporals.format(passagem.embarque, 'dd-MM-yyyy HH:mm')}">Embarque</td>
                 <td th:text="${#numbers.formatCurrency(passagem.preco)}">Preço</td>
                 <td>
                     <div>
