@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +8,30 @@
     <link rel="stylesheet" th:href="@{/css/detalhes.css}">
     <title>Detalhes do Usuário</title>
 </head>
+
 <body>
     <header>
         <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
         <nav>
-        <menu>
-        <li><a th:href="@{/usuarios}">Usuários</a></li>
-        <li><a th:href="@{/passagens}">Passagens</a></li>
-        <li><a th:href="@{/pacotes}">Pacotes</a></li>
-        <li><a th:href="@{/viagens}">Viagens</a></li>
-        <li> <a th:href="@{/logout}">Logout</a></li>
-        </menu>
+            <menu>
+                <li><a th:href="@{/usuarios}">Usuários</a></li>
+                <li><a th:href="@{/passagens}">Passagens</a></li>
+                <li><a th:href="@{/pacotes}">Pacotes</a></li>
+                <li><a th:href="@{/viagens}">Viagens</a></li>
+                <li> <a th:href="@{/logout}">Logout</a></li>
+            </menu>
         </nav>
-        </header>
+    </header>
     <main>
         <section class="section1">
-            <div class="usuarioElement">
-                <h4>Nome</h4>
-            <h2 th:text="${usuario.nome}"></h2>
+            <div class="usuarioElement2">
+                <h5>Nome</h5>
+                <h2 th:text="${usuario.nome}"></h2>
+                <h5>ID</h5>
+                <h2 th:text="${usuario.id}"></h2>
+                <h5>Tipo de Usuário</h5>
+                <h2 th:text="${usuario.tipoUsuario}"></h2>
             </div>
-            <div class="usuarioElement">
-            <h4>ID</h4>
-            <h2 th:text="${usuario.id}"></h2>
-        </div>
-        <div class="usuarioElement">
-            <h4>Tipo de Usuário</h4>
-            <h2 th:text="${usuario.tipoUsuario}"></h2>
-        </div>
             <h3>Dados Pessoais</h3>
             <div class="usuarioElement">
                 <h4>CPF:</h4>
@@ -49,9 +47,10 @@
             </div>
             <div class="usuarioElement">
                 <h4>DATA DE NASCIMENTO:</h4>
-            <p th:text="${#temporals.format(usuario.dataNascimento)}">DATA DE NASCIMENTO</p>
+                <p th:text="${#temporals.format(usuario.dataNascimento)}">DATA DE NASCIMENTO</p>
             </div>
         </section>
     </main>
 </body>
+
 </html>

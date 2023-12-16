@@ -10,12 +10,15 @@ html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
+body{
+    width: 100vw;
+}
 
 * {
     box-sizing: border-box;
     color: var(--dark-grey);
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     font-family: Inter;
     font-size: 1.5rem;
 }
@@ -23,14 +26,6 @@ html {
 a {
     text-decoration: none;
 }
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    min-height: 93vh;
-}
-
 header {
     height: 5rem;
     width: 100%;
@@ -38,7 +33,7 @@ header {
     align-items: center;
     justify-content: space-between;
     background-color: var(--blue);
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 menu {
@@ -56,6 +51,7 @@ header>a{
     font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: bold;
     color: white;
+    margin-right: 1rem;
 }
 li>a {
     color: var(--light-grey);
@@ -75,4 +71,11 @@ li>a:hover {
 
 .active {
     background-color: var(--dark-grey);
+}
+main {
+    width: 100vw;
+    min-height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }

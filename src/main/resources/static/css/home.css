@@ -8,18 +8,16 @@
 
 main {
     padding: 2rem;
-    align-items: flex-start;
+    
 }
-
 .section1 {
-    padding: .1rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5rem;
 }
-
 table {
     border-collapse: collapse;
 }
@@ -96,7 +94,7 @@ td:last-child {
     color: white; 
 }
 
-@media screen and (max-width: 60rem){
+@media screen and (max-width: 910px){
    thead{
     display: none;
    }

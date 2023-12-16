@@ -14,11 +14,11 @@
         <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
         <nav>
         <menu>
-        <li><a th:href="@{/usuarios}">Usuários</a></li>
+        <li><a class="active" th:href="@{/usuarios}">Usuários</a></li>
         <li><a th:href="@{/passagens}">Passagens</a></li>
         <li><a th:href="@{/pacotes}">Pacotes</a></li>
         <li><a th:href="@{/viagens}">Viagens</a></li>
-        <li> <a th:href="@{/logout}">Logout</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
         </menu>
         </nav>
         </header>
@@ -59,7 +59,7 @@
             </tr>
         </tbody>
     </table>
-    <a class="btnCadastro" th:href="@{/usuarios/cadastrar}">CADASTRAR USUARIO</a>
+    <a class="btnCadastro" th:href="@{/usuarios/cadastrar}">CADASTRAR USUÁRIO</a>
 </section>
 </main>
 </body>
