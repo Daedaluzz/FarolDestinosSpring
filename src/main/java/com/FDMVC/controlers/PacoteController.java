@@ -1,7 +1,5 @@
 package com.FDMVC.controlers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.FDMVC.model.Pacote;
-import com.FDMVC.model.Passagem;
 import com.FDMVC.repositories.PacoteRepository;
 import com.FDMVC.repositories.PassagemRepository;
 
@@ -35,8 +32,7 @@ public class PacoteController {
 	public ModelAndView detalhes(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("pacote/detalhes");
 		modelAndView.addObject("pacote", pacoteRepository.getReferenceById(id));
-		List<Passagem> passagens = passagemRepository.findAll();
-		modelAndView.addObject("passagens", passagens);
+		modelAndView.addObject("passagens", passagemRepository.findAll());
 		return modelAndView;
 	}
 
@@ -44,8 +40,7 @@ public class PacoteController {
 	public ModelAndView cadastrar() {
 		ModelAndView modelAndView = new ModelAndView("pacote/formulario");
 		modelAndView.addObject("pacote", new Pacote());
-		List<Passagem> passagens = passagemRepository.findAll();
-		modelAndView.addObject("passagens", passagens);
+		modelAndView.addObject("passagens", passagemRepository.findAll());
 		return modelAndView;
 	}
 
@@ -53,8 +48,7 @@ public class PacoteController {
 	public ModelAndView editar(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("pacote/formulario");
 		modelAndView.addObject("pacote", pacoteRepository.getReferenceById(id));
-		List<Passagem> passagens = passagemRepository.findAll();
-		modelAndView.addObject("passagens", passagens);
+		modelAndView.addObject("passagens", passagemRepository.findAll());
 		return modelAndView;
 	}
 
