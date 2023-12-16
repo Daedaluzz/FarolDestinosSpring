@@ -4,56 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Usuários</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
 
 <body>
-	<a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
-	<br><br>
-	 <a th:href="@{/logout}">
-        Logout
-      </a>
-      <br><br>
-    <a th:href="@{/usuarios/cadastrar}">CADASTRAR USUARIO</a>
-    <br>
-    <table class="table table-hover text-nowrap">
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+        <menu>
+        <li><a th:href="@{/usuarios}">Usuários</a></li>
+        <li><a th:href="@{/passagens}">Passagens</a></li>
+        <li><a th:href="@{/pacotes}">Pacotes</a></li>
+        <li><a th:href="@{/viagens}">Viagens</a></li>
+        <li> <a th:href="@{/logout}">Logout</a></li>
+        </menu>
+        </nav>
+        </header>
+    <main>
+        <section class="section1">
+    <table>
+        <caption>Usuários Cadastrados</caption>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>E-Mail</th>
-                <th>Telefone</th>
-                <th>Data de Nascimento</th>
-                <th>Tipo de Usuário</th>
-                <th>Ações</th>
+                <th scope="col">Nome</th>
+                <th scope="col">ID</th>
+                <th scope="col">CPF</th>
+                <th scope="col">E-Mail</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Data de Nascimento</th>
+                <th scope="col">Tipo de Usuário</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="usuario : ${usuarios}">
-                <td th:text="${usuario.id}"></td>
                 <td th:text="${usuario.nome}"></td>
+                <td th:text="${usuario.id}"></td>
                 <td th:text="${usuario.cpf}"></td>
                 <td th:text="${usuario.email}"></td>
                 <td th:text="${usuario.telefone}"></td>
                 <td th:text="${#temporals.format(usuario.dataNascimento, 'dd-MM-yyyy')}"></td>
                 <td th:text="${usuario.tipoUsuario}"></td>
                 <td>
-                    <div>
-                        <a type="button" th:href="@{/usuarios/{id} (id=${usuario.id})}">DETALHES
-
-                        </a>
-                        <a type="button" th:href="@{/usuarios/{id}/editar (id=${usuario.id})}">EDITAR
-
-                        </a>
+                    <div class="buttons">
+                        <a type="button" th:href="@{/usuarios/{id} (id=${usuario.id})}">DETALHES</a>
+                        <a type="button" th:href="@{/usuarios/{id}/editar (id=${usuario.id})}">EDITAR</a>
                         <a type="button"th:href="@{/usuarios/{id}/excluir (id=${usuario.id})}"
                             onclick="return confirm('Tem certeza que deseja excluir o usuario?');">EXCLUIR
                         </a>
                     </div>
-                <td>
+                    </td>
             </tr>
         </tbody>
     </table>
+    <a class="btnCadastro" th:href="@{/usuarios/cadastrar}">CADASTRAR USUARIO</a>
+</section>
+</main>
 </body>
 
 </html>

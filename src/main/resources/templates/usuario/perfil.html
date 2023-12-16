@@ -4,27 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Perfil</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/detalhes.css}">
 </head>
 
 <body>
-
-    <h3 th:text="${usuario.nome}">Alow</h3>
-    <h4 th:text="${usuario.tipoUsuario}">User</h4>
-
-    <h3>Dados Pessoais</h3>
-    <p th:text="${usuario.cpf}">CPF</p>
-    <p th:text="${usuario.email}">E-MAIL</p>
-    <p th:text="${usuario.telefone}">TELEFONE</p>
-    <p th:text="${#temporals.format(usuario.dataNascimento)}">DATA DE NASCIMENTO</p>
-    <br>
-    <a th:href="@{/usuarios}">USUARIOS</a>
-    <br>
-    <a th:href="@{/passagens}">PASSAGENS</a>
-    <br>
-    <a th:href="@{/pacotes}">PACOTES</a>
-    <br>
-    <a th:href="@{/viagens}">VIAGENS</a>
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+        <menu>
+        <li><a th:href="@{/usuarios}">Usuários</a></li>
+        <li><a th:href="@{/passagens}">Passagens</a></li>
+        <li><a th:href="@{/pacotes}">Pacotes</a></li>
+        <li><a th:href="@{/viagens}">Viagens</a></li>
+        <li> <a th:href="@{/logout}">Logout</a></li>
+        </menu>
+        </nav>
+        </header>
+    <main>
+        <section class="section1">
+            <div class="usuarioElement">
+            <h2 th:text="${usuario.nome}"></h2>
+            <h2 th:text="${usuario.id}"></h2>
+        </div>
+            <h2 th:text="${usuario.tipoUsuario}"></h2>
+            <h3>Dados Pessoais</h3>
+            <div class="usuarioElement">
+                <h4>CPF:</h4>
+                <p th:text="${usuario.cpf}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>E-MAIL:</h4>
+                <p th:text="${usuario.email}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>TELEFONE:</h4>
+                <p th:text="${usuario.telefone}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>DATA DE NASCIMENTO:</h4>
+            <p th:text="${#temporals.format(usuario.dataNascimento)}">DATA DE NASCIMENTO</p>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>

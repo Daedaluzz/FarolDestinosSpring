@@ -4,16 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Passagens</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 
 <body>
-	<a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
-	<br><br>
-	 <a th:href="@{/logout}">
-        Logout
-      </a>
-      <br><br>
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+        <menu>
+        <li><a th:href="@{/usuarios}">Usuários</a></li>
+        <li><a th:href="@{/passagens}">Passagens</a></li>
+        <li><a th:href="@{/pacotes}">Pacotes</a></li>
+        <li><a th:href="@{/viagens}">Viagens</a></li>
+        <li> <a th:href="@{/logout}">Logout</a></li>
+        </menu>
+        </nav>
+        </header>
     <a th:href="@{/passagens/cadastrar}">CADASTRAR PASSAGEM</a>
     <br>
     <table class="table table-hover text-nowrap">

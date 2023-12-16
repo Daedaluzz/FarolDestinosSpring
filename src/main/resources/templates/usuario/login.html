@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Entre com suas credenciais para iniciar a seção</p>
 
-    <form method="POST" th:action="@{/login}">
-      <div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
+<body>
+  <main>
+    <section class="section1">
+      <div class="login">
+      <h3>Entre com suas credenciais para iniciar a seção</h3>
+      <form method="POST" th:action="@{/login}">
+        <div class="inputElement">
+          <img src="/images/user.png">
         <input type="email" placeholder="E-mail" name="username" required>
-        <div>
-          <div>
-            
-          </div>
-        </div>
       </div>
-      <div>
+      <div class="inputElement">
+        <img src="/images/lock.png">
         <input type="password" placeholder="Senha" name="password" required>
-        <div>
-          <div>
-            
-          </div>
-        </div>
       </div>
-          <button type="submit">Entrar</button>
-    </form>
+        <button type="submit">Entrar</button>
+      </form>
+      <p><span>Para seu primeiro acesso utilize:</span>
+        <span>Login:admin@admin.com</span>
+        <span>Senha:0000</span>
+      </p>
+    </div>
+    </section>
+  </main>
 </body>
+
 </html>

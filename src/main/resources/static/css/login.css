@@ -1,0 +1,84 @@
+/* CSS Document */ :root {
+    --yellow: #fbdb2c;
+    --blue: #2BC6EE;
+    --dark-grey: #49494C;
+    --light-grey: #f4f4f4;
+  }
+  .section1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark-grey);
+}
+  .login{
+background-color: var(--light-grey);
+    width: 80%;
+    max-width: 40rem;
+    border-radius: 0.5rem;
+}
+h3{  font-size: clamp(2rem, 1.5vw, 2.5rem);
+    text-align: center;
+    font-weight: bolder;
+    padding: 1rem 3rem;
+    background-color: var(--yellow);
+    border-radius:0.5rem 0.5rem 0 0;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 4rem 3rem;
+}
+.inputElement{
+    display: flex;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-bottom:4rem;
+}
+img{
+    background-color: var(--yellow);
+    object-position: center;
+    object-fit: contain;
+    padding: 0.5rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+input{
+   height: 3rem;
+   width: 100%;
+   border-radius: 0 0.5rem 0.5rem 0;
+   border: solid 0.5px var(--dark-grey);
+   padding: 2rem 0.5rem;
+   color: var(--dark-grey);
+   font-size: 2rem;
+}
+input:focus{
+    outline: none;
+}
+button{
+    width: 100%;
+    height: 4rem;
+    border-radius: 0.5rem;
+    margin-bottom:4rem;
+    font-size: 2rem;
+    background-color: var(--yellow);
+    border: none;
+    cursor: pointer;
+}
+button:hover{
+    background-color: var(--dark-grey);
+    color: var(--yellow);
+
+}
+p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--yellow);
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 1rem;
+}
+

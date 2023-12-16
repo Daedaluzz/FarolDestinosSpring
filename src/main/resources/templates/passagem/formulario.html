@@ -4,11 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>[[${passagem.id == null ? 'Nova' : 'Editar'}]] Passagem</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 
 <body>
-    <h1>EDITAR PASSAGEM</h1>
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+        <menu>
+        <li><a th:href="@{/usuarios}">Usuários</a></li>
+        <li><a th:href="@{/passagens}">Passagens</a></li>
+        <li><a th:href="@{/pacotes}">Pacotes</a></li>
+        <li><a th:href="@{/viagens}">Viagens</a></li>
+        <li> <a th:href="@{/logout}">Logout</a></li>
+        </menu>
+        </nav>
+        </header>
+    <h1>[[${passagem.id == null ? 'NOVA' : 'EDITAR'}]] PASSAGEM</h1>
     <form method="POST" th:object="${passagem}" style="display: flex; flex-direction: column; width: 40%;">
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
         <input type="hidden" th:field="*{id}" readonly>
