@@ -53,7 +53,7 @@ public class Passagem extends Entidade{
 	private BigDecimal preco;
     
 	@ManyToMany(mappedBy = "passagensV", fetch = FetchType.LAZY)
-	private Set<Viagens> viagens = new HashSet<Viagens>();
+	private Set<Viagem> viagens = new HashSet<Viagem>();
 	
 	@ManyToMany(mappedBy = "passagensP", fetch = FetchType.LAZY)
 	private Set<Pacote> pacotes = new HashSet<Pacote>();
@@ -122,11 +122,11 @@ public class Passagem extends Entidade{
 		this.preco = preco;
 	}
 
-	public Set<Viagens> getViagens() {
+	public Set<Viagem> getViagens() {
 		return viagens;
 	}
 
-	public void setViagens(Set<Viagens> viagens) {
+	public void setViagens(Set<Viagem> viagens) {
 		this.viagens = viagens;
 	}
 

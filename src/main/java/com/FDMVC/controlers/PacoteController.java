@@ -28,8 +28,6 @@ public class PacoteController {
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("pacote/home");
 		modelAndView.addObject("pacotes", pacoteRepository.findAll());
-		List<Passagem> passagens = passagemRepository.findAll();
-		modelAndView.addObject("passagens", passagens);
 		return modelAndView;
 	}
 
@@ -52,7 +50,7 @@ public class PacoteController {
 	}
 
 	@GetMapping("{id}/editar")
-	public ModelAndView editar(@PathVariable long id) {
+	public ModelAndView editar(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("pacote/formulario");
 		modelAndView.addObject("pacote", pacoteRepository.getReferenceById(id));
 		List<Passagem> passagens = passagemRepository.findAll();

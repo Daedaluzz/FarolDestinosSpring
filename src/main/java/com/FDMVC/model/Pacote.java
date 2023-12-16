@@ -45,7 +45,7 @@ public class Pacote extends Entidade{
 	private BigDecimal preco;
 	
 	@ManyToMany(mappedBy = "pacotes", fetch = FetchType.LAZY)
-	private Set<Viagens> viagens = new HashSet<Viagens>();
+	private Set<Viagem> viagens = new HashSet<Viagem>();
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name ="pacote_passagens",
@@ -112,11 +112,11 @@ public class Pacote extends Entidade{
 		this.preco = preco;
 	}
 
-	public Set<Viagens> getViagens() {
+	public Set<Viagem> getViagens() {
 		return viagens;
 	}
 
-	public void setViagens(Set<Viagens> viagens) {
+	public void setViagens(Set<Viagem> viagens) {
 		this.viagens = viagens;
 	}
 

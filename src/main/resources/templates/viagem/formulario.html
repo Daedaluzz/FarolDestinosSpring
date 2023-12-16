@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>EDITAR PASSAGEM</h1>
+    <form method="POST" th:object="${viagem}" style="display: flex; flex-direction: column; width: 40%;">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <input type="hidden" th:field="*{id}" readonly>
+        <label for="usuario">Nome do Cliente</label>
+        <select th:field="*{usuario}">
+            <option th:each="usuario:${usuarios}" th:text="${usuario.nome}" th:value="${usuario.id}">1</option>
+        </select>
+        <label for="usuario">Pacotes Adquiridos</label>
+        <div style="display: flex;">
+            <input name="pacote" type="checkbox" th:each="pacote : ${pacotes}" th:field="*{pacotes}" th:value="${pacote.id}"
+            th:text="${pacote.nome}+' : '+${pacote.id}"></option>
+        </div>
+            <label for="usuario">Passagens Adquiridas</label>
+        <div style="display: flex;">
+        <input name="passagem" type="checkbox" th:each="passagem : ${passagens}" th:field="*{passagensV}" th:value="${passagem.id}"
+        th:text="${passagem.cidadeDestino}+' : '+${passagem.numeroBilhete}"/>
+    </div>
+        <label for="dataCompra">Data da Compra</label>
+        <input type="datetime-local" th:field="*{dataCompra}">
+        <label for="preco">Preço Total</label>
+        <input type="text" placeholder="2500,00" th:field="*{precoTotal}">
+        <button type="submit">SALVAR</button>
+        
+    </form>
+    <br>
+    <br>
+    <a th:href="@{/viagens}">VIAGENS</a>
+</body>
+
+</html>
