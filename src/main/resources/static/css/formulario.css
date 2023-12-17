@@ -15,26 +15,11 @@
 h1{
     font-size: 2rem;
 }
-h3{  
-    font-size: clamp(2rem, 1.5vw, 2.5rem);
-    text-align: center;
-    font-weight: bolder;
-    padding: 1rem 3rem;
-    background-color: var(--yellow);
-    border-radius:0.5rem 0.5rem 0 0;
-}
 form{
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 4rem 3rem;
     gap:1rem;
-}
-.inputElement{
-    display: flex;
-    border-radius: 0.5rem;
-    width: 100%;
-    margin-bottom:4rem;
 }
 input{
    height: 4rem;
@@ -48,6 +33,19 @@ input{
 input:focus{
     outline: none;
 }
+.checks{
+    display: flex;
+    align-items: center;
+}
+.checks label{
+    font-size: 1.5rem;
+}
+.checks input{
+ height: 1.5rem;
+ width: 1.5rem;
+ margin: 0.5rem;
+ 
+}
 select{
     height: 4rem;
     width: 100%;
@@ -58,7 +56,6 @@ select{
     font-size: 1.5rem;
  
 }
-
 button{
     width: 100%;
     height: 4rem;
@@ -73,14 +70,6 @@ button:hover{
     background-color: var(--dark-grey);
     color: var(--yellow);
 
-}
-p{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--yellow);
-    border-radius: 0 0 0.5rem 0.5rem;
-    padding: 1rem;
 }
 fieldset{
 padding: 0;

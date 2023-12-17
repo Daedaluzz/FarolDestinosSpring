@@ -4,41 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>[[${pacote.id == null ? 'Novo' : 'Editar'}]] Pacote</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/formulario.css}">
 </head>
 
 <body>
-    <h1>EDITAR PACOTE</h1>
-    <form method="POST" th:object="${pacote}" style="display: flex; flex-direction: column; width: 40%;">
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-        <input type="hidden" th:field="*{id}" readonly>
-        <label for="nome">Nome do Pacote</label>
-        <input type="text" placeholder="Praias Litoral Sul" th:field="*{nome}">
-        <label for="destino">Cidade de Destino</label>
-        <input type="text" placeholder="Recife" th:field="*{destino}">
-        <label for="ida">Data e Hora da Ida</label>
-        <input type="datetime-local" th:field="*{ida}">
-        <label for="volta">Data e Hora da Volta</label>
-        <input type="datetime-local" th:field="*{volta}">
-        <label for="diasHospedagem">Dias de Hospedagem</label>
-        <input type="text" placeholder="" th:field="*{diasHospedagem}" readonly>
-        <div>
-            <p>Habilitar Promoção</p>
-            <label for="sim">Sim</label>
-            <input type="radio" th:field="*{promocao}" value="TRUE" name="promocao">
-            <label for="nao">Não</label>
-            <input type="radio" th:field="*{promocao}" value="FALSE" name="promocao">
-        </div>
-        <label for="preco">Preço do Pacote</label>
-        <input type="text" placeholder="2500,00" th:field="*{preco}">
-
-            <input name="passagem" type="checkbox" th:each="passagem : ${passagens}" th:field="*{passagensP}" th:value="${passagem.id}"
-                th:text="${passagem.cidadeDestino}+' : '+${passagem.numeroBilhete}"/>
-        <button type="submit">SALVAR</button>
-    </form>
-    <br>
-    <br>
-    <a th:href="@{/pacotes}">PACOTES</a>
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+            <menu>
+                <li><a th:href="@{/usuarios}">Usuários</a></li>
+                <li><a th:href="@{/passagens}">Passagens</a></li>
+                <li><a th:href="@{/pacotes}">Pacotes</a></li>
+                <li><a th:href="@{/viagens}">Viagens</a></li>
+                <li> <a th:href="@{/logout}">Logout</a></li>
+            </menu>
+        </nav>
+    </header>
+    <main>
+        <section class="section1">
+            <h1>[[${pacote.id == null ? 'NOVO' : 'EDITAR'}]] PACOTE</h1>
+            <form method="POST" th:object="${pacote}" style="display: flex; flex-direction: column; width: 40%;">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                <input type="hidden" th:field="*{id}" readonly>
+                <label for="nome">Nome do Pacote</label>
+                <input type="text" placeholder="Praias Litoral Sul" th:field="*{nome}">
+                <label for="destino">Cidade de Destino</label>
+                <input type="text" placeholder="Recife" th:field="*{destino}">
+                <label for="ida">Data e Hora da Ida</label>
+                <input type="datetime-local" th:field="*{ida}">
+                <label for="volta">Data e Hora da Volta</label>
+                <input type="datetime-local" th:field="*{volta}">
+                <label for="diasHospedagem">Dias de Hospedagem</label>
+                <input type="text" placeholder="" th:field="*{diasHospedagem}" readonly>
+                <p>Promoção</p>
+                <div class="checks">
+                    <input type="radio" th:field="*{promocao}" value="TRUE" name="promocao">
+                    <label for="sim">Sim</label>
+                    <input type="radio" th:field="*{promocao}" value="FALSE" name="promocao">
+                    <label for="nao">Não</label>
+                </div>
+                <p>Passagens</p>
+                <div class="checks">
+                    <input name="passagem" type="checkbox" th:each="passagem : ${passagens}" th:field="*{passagensP}"
+                        th:value="${passagem.id}" th:text="${passagem.cidadeDestino}+' : '+${passagem.numeroBilhete}" />
+                </div>
+                <label for="preco">Preço do Pacote</label>
+                <input type="text" placeholder="2500,00" th:field="*{preco}">
+                <button type="submit">SALVAR</button>
+            </form>
+        </section>
+    </main>
 </body>
 
 </html>

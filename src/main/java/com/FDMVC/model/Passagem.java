@@ -119,6 +119,8 @@ public class Passagem extends Entidade{
 	}
 
 	public void setPreco(BigDecimal preco) {
+		BigDecimal zero = BigDecimal.valueOf(0);
+		preco.add(zero);
 		this.preco = preco;
 	}
 

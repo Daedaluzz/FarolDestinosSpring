@@ -86,7 +86,7 @@ public class Viagem extends Entidade {
 
 	public void setPrecoTotal(BigDecimal precoTotal) {
 		BigDecimal zero = BigDecimal.valueOf(0);
-		precoTotal = zero;
+		precoTotal.add(zero);
 		for (Pacote i : pacotes ) {
 			precoTotal= precoTotal.add(i.getPreco());
 		}

@@ -1,35 +1,72 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Detalhes do Pacote</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/detalhes.css}">
 </head>
+
 <body>
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+            <menu>
+                <li><a th:href="@{/usuarios}">Usuários</a></li>
+                <li><a th:href="@{/passagens}">Passagens</a></li>
+                <li><a th:href="@{/pacotes}">Pacotes</a></li>
+                <li><a th:href="@{/viagens}">Viagens</a></li>
+                <li> <a th:href="@{/logout}">Logout</a></li>
+            </menu>
+        </nav>
+    </header>
+    <main>
+        <section class="section1">
+            <h2>Dados do Pacote</h2>
+            <div class="usuarioElement">
+                <h4>ID do Pacote:</h4>
+                <p th:text="${pacote.id}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Nome do Pacote:</h4>
+                <p th:text="${pacote.nome}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Destino do Pacote:</h4>
+                <p th:text="${pacote.destino}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Dias de Hospedagem:</h4>
+                <p th:text="${pacote.diasHospedagem}">7</p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Data da Ida:</h4>
+                <p th:text="${#temporals.format(pacote.ida)}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Data da Volta:</h4>
+                <p th:text="${#temporals.format(pacote.volta)}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Promoção Habilitada:</h4>
+                <p th:text="${pacote.promocao}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Preço do Pacote:</h4>
+                <p th:text="${#numbers.formatCurrency(pacote.preco)}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Passagens do Pacote:</h4>
+                <p style="display: block;" th:each="passagem : ${pacote.passagensP}"
+                    th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
+                </p>
+            </div>
+        </section>
+    </main>
 
-    <h1>Dados do Pacote</h3>
-    <h4>ID</p>
-    <p th:text="${pacote.id}"></p>
-    <h4>Nome do Pacote</h4>
-    <p th:text="${pacote.nome}">Praias Litoral Sul</p>
-    <h4>Destino do Pacote</h4>
-    <p th:text="${pacote.destino}">Recife</p>
-    <h4>Dias de Hospedagem</h4>
-    <p th:text="${pacote.diasHospedagem}">7</p>
-    <h4>Data da Ida</h4>
-    <p th:text="${#temporals.format(pacote.ida)}">Ida</p>
-    <h4>Data da Volta</h4>
-    <p th:text="${#temporals.format(pacote.volta)}">Volta</p>
-    <h4>Promoção Habilitada</h4>
-    <p th:text="${pacote.promocao}">TRUE</p>
-    <h4>Preço do Pacote</h4>
-    <p th:text="${#numbers.formatCurrency(pacote.preco)}">6.300,00</p>
-    <h4>Passagens do Pacote</h4>
-    <p style="display: block;" th:each="passagem : ${pacote.passagensP}"
-    th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
-</p>
-    <a th:href="@{/pacotes}">PACOTES</a>
 
-    
 </body>
+
 </html>
