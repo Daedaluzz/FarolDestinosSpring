@@ -33,12 +33,14 @@ Para iniciar o projeto, você precisará do Spring Tools. Você baixar pra sua I
 ### Pré-requisitos
 
 Você precisa do Spring Tools na sua IDE, feito isso basta importar o projeto(import as Maven project), que o arquivo de dependências(pom.xml) vai baixar todas as dependências necessárias do projeto.
+![Screenshot 2023-12-17 152628](https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/ea663d79-cfae-48a4-b531-faf0f6aa1308)
 
 Você Também vai precisar de um Banco de Dados relacional, nesse projeto optei por usar o MySQL Workbench pra verificar as atualizações das tabelas.
 
 ## Usando o projeto
 
 Após fazer a importação do projeto, navegue até FarolDestinosSpring>src/main/resources e abra o arquivo aplication.properties. Aqui você precisa configurar o usuário e senha do seu banco de dados bem como a porta, caso não esteja utilizando a padão.
+![image](https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/299e3997-bcb2-47d5-8900-ba82ac9fd3ad)
 
 ## Contato
 
