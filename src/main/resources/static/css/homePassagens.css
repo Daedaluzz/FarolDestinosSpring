@@ -34,7 +34,7 @@ td {
     height: 3rem;
 }
 
-tbody tr:hover {
+tr:hover {
     background-color: var(--light-grey);
 }
 
@@ -46,7 +46,6 @@ th {
 .bts{
     padding: 0;
 }
-
 .buttons {
     height: 100%;
     display: flex;
@@ -94,7 +93,7 @@ th {
     color: white; 
 }
 
-@media screen and (max-width: 910px){
+@media screen and (max-width: 980px){
    thead{
     display: none;
    }
@@ -102,7 +101,6 @@ th {
         display: flex;
         align-items: center;
         gap: 1rem;
-
     }
     td:first-child{
     justify-content: center;
@@ -112,22 +110,31 @@ th {
     td:last-child{
         margin-bottom: 2rem;
     }
-    td:nth-child(2)::before{
+    td:first-child::before{
         content: 'ID:';
     }
+    td:nth-child(2)::before{
+        content: 'Destino:';
+    }
     td:nth-child(3)::before{
-        content: 'CPF:';
+        content: 'Origem:';
     }
     td:nth-child(4)::before{
-        content: 'E-mail:';
+        content: 'N° Bilhete:';
     }
     td:nth-child(5)::before{
-        content: 'Telefone:';
+        content: 'Assento:';
     }
     td:nth-child(6)::before{
-        content: 'Data de Nascimento:';
+        content: 'Portão:';
     }
     td:nth-child(7)::before{
-        content: 'Tipo de usuário:';
+        content: 'Terminal:';
+    }
+    td:nth-child(8)::before{
+        content: 'Embarque:';
+    }
+    td:nth-child(9)::before{
+        content: 'Preço:';
     }
 }

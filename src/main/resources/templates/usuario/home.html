@@ -8,7 +8,6 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
-
 <body>
     <header>
         <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
@@ -28,14 +27,14 @@
         <caption>Usuários Cadastrados</caption>
         <thead>
             <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">ID</th>
-                <th scope="col">CPF</th>
-                <th scope="col">E-Mail</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Data de Nascimento</th>
-                <th scope="col">Tipo de Usuário</th>
-                <th scope="col">Ações</th>
+                <th>Nome</th>
+                <th>ID</th>
+                <th>CPF</th>
+                <th>E-Mail</th>
+                <th>Telefone</th>
+                <th>Data de Nascimento</th>
+                <th>Tipo de Usuário</th>
+                <th sec:authorize="hasAuthority('ADMIN')">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -47,19 +46,18 @@
                 <td th:text="${usuario.telefone}"></td>
                 <td th:text="${#temporals.format(usuario.dataNascimento, 'dd-MM-yyyy')}"></td>
                 <td th:text="${usuario.tipoUsuario}"></td>
-                <td>
+                <td class="bts" sec:authorize="hasAuthority('ADMIN')">
                     <div class="buttons">
                         <a type="button" th:href="@{/usuarios/{id} (id=${usuario.id})}">DETALHES</a>
                         <a type="button" th:href="@{/usuarios/{id}/editar (id=${usuario.id})}">EDITAR</a>
                         <a type="button"th:href="@{/usuarios/{id}/excluir (id=${usuario.id})}"
-                            onclick="return confirm('Tem certeza que deseja excluir o usuario?');">EXCLUIR
-                        </a>
+                        onclick="return confirm('Tem certeza que deseja excluir o usuario?');">EXCLUIR</a>
                     </div>
                     </td>
             </tr>
         </tbody>
     </table>
-    <a class="btnCadastro" th:href="@{/usuarios/cadastrar}">CADASTRAR USUÁRIO</a>
+    <a sec:authorize="hasAuthority('ADMIN')" class="btnCadastro" th:href="@{/usuarios/cadastrar}">CADASTRAR USUÁRIO</a>
 </section>
 </main>
 </body>

@@ -86,4 +86,19 @@ fieldset{
 padding: 0;
 border: none;
 }
+.terminal:first-child{
+    color: var(--blue);
+}
+.terminal:nth-child(2){
+    color: orange;
+}
+.terminal:nth-child(3){
+    color: var(--yellow);
+}
+.terminal:nth-child(4){
+    color: green;
+}
+.terminal:nth-child(5){
+    color: magenta;
+}
 

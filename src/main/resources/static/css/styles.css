@@ -5,6 +5,13 @@
     --dark-grey: #49494C;
     --light-grey: #f4f4f4;
 }
+@font-face {
+    font-family: 'interregular';
+    src: url('inter-variablefont_slntwght-webfont.woff2') format('woff2'),
+         url('inter-variablefont_slntwght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 html {
     font-size: 62.5%;

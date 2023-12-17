@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.FDMVC.enums.Assento;
 import com.FDMVC.enums.Portao;
 import com.FDMVC.enums.Terminal;
 import com.FDMVC.model.Passagem;
@@ -37,6 +38,7 @@ public class PassagemController {
 	public ModelAndView cadastrar() {
 		ModelAndView modelAndView = new ModelAndView("passagem/formulario");
 		modelAndView.addObject("passagem", new Passagem());
+		modelAndView.addObject("assentos", Assento.values());
 		modelAndView.addObject("terminais", Terminal.values());
 		modelAndView.addObject("portoes", Portao.values());
 		return modelAndView;
@@ -46,6 +48,7 @@ public class PassagemController {
 	public ModelAndView editar(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("passagem/formulario");
 		modelAndView.addObject("passagem", passagemRepository.getReferenceById(id));
+		modelAndView.addObject("assentos", Assento.values());
 		modelAndView.addObject("terminais", Terminal.values());
 		modelAndView.addObject("portoes", Portao.values());
 		return modelAndView;

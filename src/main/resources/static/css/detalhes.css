@@ -20,6 +20,7 @@ main {
     justify-content: center;
     border-radius: 0.5rem;
     background-color: var(--light-grey);
+    padding: 2rem 0;
 }
 
 h2 {
@@ -62,5 +63,4 @@ h5 {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-
 }

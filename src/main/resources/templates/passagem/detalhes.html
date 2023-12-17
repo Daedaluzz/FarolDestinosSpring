@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes da Passagem</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/detalhes.css}">
 </head>
+
 <body>
     <header>
         <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
         <nav>
-        <menu>
-        <li><a th:href="@{/usuarios}">Usuários</a></li>
-        <li><a th:href="@{/passagens}">Passagens</a></li>
-        <li><a th:href="@{/pacotes}">Pacotes</a></li>
-        <li><a th:href="@{/viagens}">Viagens</a></li>
-        <li> <a th:href="@{/logout}">Logout</a></li>
-        </menu>
+            <menu>
+                <li><a th:href="@{/usuarios}">Usuários</a></li>
+                <li><a th:href="@{/passagens}">Passagens</a></li>
+                <li><a th:href="@{/pacotes}">Pacotes</a></li>
+                <li><a th:href="@{/viagens}">Viagens</a></li>
+                <li> <a th:href="@{/logout}">Logout</a></li>
+            </menu>
         </nav>
-        </header>
+    </header>
+    <main>
+        <section class="section1">
+        <h2>Dados da Passagem</h2>
+        <div class="usuarioElement">
+            <h4>ID da Passagem:</h4>
+            <p th:text="${passagem.id}"></p>
+        </div>
+        <div class="usuarioElement">
+            <h4>Cidade de Destino:</h4>
+            <p th:text="${passagem.cidadeDestino}"></p>
+        </div>
+        <div class="usuarioElement">
+            <h4>Cidade de Origem:</h4>
+            <p th:text="${passagem.cidadeOrigem}"></p>
+        </div>
+        <div class="usuarioElement">
+            <h4>Número do Bilhete:</h4>
+            <p th:text="${passagem.numeroBilhete}"></p>
+        </div>
+        <div class="usuarioElement">
+            <h4>Assento:</h4>
+            <p th:text="${passagem.assento}"></p>
+        </div>
+        <div class="usuarioElement">
+            <h4>Portão:</h4>
+            <p th:text="${passagem.portao}"></p>
+        </div>
+        <div class="usuarioElement">
+            <h4>Terminal:</h4>
+            <p th:text="${passagem.terminal}"></p>
+        </div>
+        <div class="usuarioElement">
+            <h4>Embarque:</h4>
+            <p th:text="${#temporals.format(passagem.embarque)}"></p>
+        </div>
+        <div class="usuarioElement">
+            <h4>Preço da Passagem:</h4>
+            <p th:text="${passagem.preco}"></p>
+        </div>
 
-    <h1>Dados da Passagem</h1>
-    <h4>ID da Passagem</h4>
-    <p th:text="${passagem.id}"></p>
-    <h4>Cidade de Destino</h4>
-    <p th:text="${passagem.cidadeDestino}"></p>
-    <h4>Cidade de Origem</h4>
-    <p th:text="${passagem.cidadeOrigem}"></p>
-    <h4>Número do Bilhete</h4>
-    <p th:text="${passagem.numeroBilhete}"></p>
-    <h4>Assento</h4>
-    <p th:text="${passagem.assento}"></p>
-    <h4>Portão</h4>
-    <p th:text="${passagem.portao}"></p>
-    <h4>Terminal</h4>
-    <p th:text="${passagem.terminal}"></p>
-    <h4>Embarque</h4>
-    <p th:text="${#temporals.format(passagem.embarque)}"></p>
-    <h4>Preço da Passagem</h4>
-    <p th:text="${passagem.preco}"></p>
+
+        </section>
+    </main>
 
 
-    <a th:href="@{/passagens}">PASSAGENS</a>
-
-    
 </body>
+
 </html>

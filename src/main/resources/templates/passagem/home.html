@@ -6,64 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passagens</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/homePassagens.css}">
 </head>
 
 <body>
     <header>
         <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
         <nav>
-        <menu>
-        <li><a th:href="@{/usuarios}">Usuários</a></li>
-        <li><a th:href="@{/passagens}">Passagens</a></li>
-        <li><a th:href="@{/pacotes}">Pacotes</a></li>
-        <li><a th:href="@{/viagens}">Viagens</a></li>
-        <li> <a th:href="@{/logout}">Logout</a></li>
-        </menu>
+            <menu>
+                <li><a th:href="@{/usuarios}">Usuários</a></li>
+                <li><a class="active" th:href="@{/passagens}">Passagens</a></li>
+                <li><a th:href="@{/pacotes}">Pacotes</a></li>
+                <li><a th:href="@{/viagens}">Viagens</a></li>
+                <li> <a th:href="@{/logout}">Logout</a></li>
+            </menu>
         </nav>
-        </header>
-    <a th:href="@{/passagens/cadastrar}">CADASTRAR PASSAGEM</a>
-    <br>
-    <table class="table table-hover text-nowrap">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Cidade de Destino</th>
-                <th>Cidade de Origem</th>
-                <th>Número do Bilhete</th>
-                <th>Assento</th>
-                <th>Portão</th>
-                <th>Terminal</th>
-                <th>Embarque</th>
-                <th>Preço</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="passagem : ${passagens}">
-                <td th:text="${passagem.id}">ID</td>
-                <td th:text="${passagem.cidadeDestino}">Cidade de Destino</td>
-                <td th:text="${passagem.cidadeOrigem}">Cidade de Origem</td>
-                <td th:text="${passagem.numeroBilhete}">Número do Bilhete</td>
-                <td th:text="${passagem.assento}">Assento</td>
-                <td th:text="${passagem.portao}">Portão</td>
-                <td th:text="${passagem.terminal}">Terminal</td>
-                <td th:text="${#temporals.format(passagem.embarque, 'dd-MM-yyyy HH:mm')}">Embarque</td>
-                <td th:text="${#numbers.formatCurrency(passagem.preco)}">Preço</td>
-                <td>
-                    <div>
-                        <a type="button" th:href="@{/passagens/{id} (id=${passagem.id})}">DETALHES
-
-                        </a>
-                        <a type="button" th:href="@{/passagens/{id}/editar (id=${passagem.id})}">EDITAR
-
-                        </a>
-                        <a type="button"th:href="@{/passagens/{id}/excluir (id=${passagem.id})}"
-                            onclick="return confirm('Tem certeza que deseja excluir a passagem?');">EXCLUIR
-                        </a>
-                    </div>
-                <td>
-            </tr>
-        </tbody>
-    </table>
+    </header>
+    <main>
+        <section class="section1">
+            <table>
+                <caption>Passagens Cadastradas</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cidade de Destino</th>
+                        <th>Cidade de Origem</th>
+                        <th>Número do Bilhete</th>
+                        <th>Assento</th>
+                        <th>Portão</th>
+                        <th>Terminal</th>
+                        <th>Embarque</th>
+                        <th>Preço</th>
+                        <th sec:authorize="hasAuthority('ADMIN')">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="passagem : ${passagens}">
+                        <td th:text="${passagem.id}">ID</td>
+                        <td th:text="${passagem.cidadeDestino}">Cidade de Destino</td>
+                        <td th:text="${passagem.cidadeOrigem}">Cidade de Origem</td>
+                        <td th:text="${passagem.numeroBilhete}">Número do Bilhete</td>
+                        <td th:text="${passagem.assento}">Assento</td>
+                        <td th:text="${passagem.portao}">Portão</td>
+                        <td th:text="${passagem.terminal}">Terminal</td>
+                        <td th:text="${#temporals.format(passagem.embarque, 'dd-MM-yyyy HH:mm')}">Embarque</td>
+                        <td th:text="${#numbers.formatCurrency(passagem.preco)}">Preço</td>
+                        <td class="bts" sec:authorize="hasAuthority('ADMIN')">
+                            <div class="buttons">
+                                <a type="button" th:href="@{/passagens/{id} (id=${passagem.id})}">DETALHES</a>
+                                <a type="button" th:href="@{/passagens/{id}/editar (id=${passagem.id})}">EDITAR</a>
+                                <a type="button" th:href="@{/passagens/{id}/excluir (id=${passagem.id})}"
+                                onclick="return confirm('Tem certeza que deseja excluir a passagem?');">EXCLUIR</a>
+                            </div>
+                        </tr>
+                    </tr>
+                </tbody>
+                </table>
+                <a sec:authorize="hasAuthority('ADMIN')" class="btnCadastro"  th:href="@{/passagens/cadastrar}">CADASTRAR PASSAGEM</a>
+        </section>
+    </main>
 </body>
 
 </html>

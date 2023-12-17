@@ -35,14 +35,16 @@
                 <label for="numeroBilhete">Numero do Bilhete</label>
                 <input type="text" placeholder="1234" th:field="*{numeroBilhete}">
                 <label for="assento">Assento</label>
-                <input type="text" placeholder="A22" th:field="*{assento}">
+                <select th:field="*{assento}">
+                    <option th:each="assento:${assentos}" th:text="${assento}" th:value="${assento}">1</option>
+                </select>
                 <label for="portao">Portão</label>
                 <select th:field="*{portao}">
                     <option th:each="portao:${portoes}" th:text="${portao}" th:value="${portao}">1</option>
                 </select>
                 <label for="terminal">Terminal</label>
                 <select th:field="*{terminal}">
-                    <option th:each="terminal:${terminais}" th:text="${terminal}" th:value="${terminal}">AZUL</option>
+                    <option class="terminal" th:each="terminal:${terminais}" th:text="${terminal.descricao}+' : '+${terminal.cor}" th:value="${terminal}">AZUL</option>
                 </select>
                 <label for="embarque">Data e Hora do Embarque</label>
                 <input type="datetime-local" th:field="*{embarque}">
