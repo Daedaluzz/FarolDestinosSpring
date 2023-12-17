@@ -4,63 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pacotes</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/homePacotes.css}">
 </head>
 
 <body>
-    <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
-    <br><br>
-    <a th:href="@{/logout}">
-        Logout
-    </a>
-    <br><br>
-    <a th:href="@{/pacotes/cadastrar}">CADASTRAR PACOTE</a>
-    <br>
-    <table class="table table-hover text-nowrap">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome do Pacote</th>
-                <th>Cidade de Destino</th>
-                <th>Data da Ida</th>
-                <th>Data da Volta</th>
-                <th>Dias de Hospedagem</th>
-                <th>Promoção</th>
-                <th>Passagens Origem : Destino : ID</th>
-                <th>Preço</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="pacote : ${pacotes}">
-                <td th:text="${pacote.id}">ID</td>
-                <td th:text="${pacote.nome}">Praias Litoral Sul</td>
-                <td th:text="${pacote.destino}">Recife</td>
-                <td th:text="${#temporals.format(pacote.ida, 'dd-MM-yyyy HH:mm')}">Ida</td>
-                <td th:text="${#temporals.format(pacote.volta, 'dd-MM-yyyy HH:mm')}">Volta</td>
-                <td th:text="${pacote.diasHospedagem}"></td>
-                <td th:text="${pacote.promocao}">TRUE</td>
-                <td>
-                    <span style="display: block;" th:each="passagem : ${pacote.passagensP}"
-                        th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
-                    </span>
-                </td>
-                <td th:text="${#numbers.formatCurrency(pacote.preco)}">6.300,00</td>
-                <td>
-                    <div>
-                        <a type="button" th:href="@{/pacotes/{id} (id=${pacote.id})}">DETALHES
-
-                        </a>
-                        <a type="button" th:href="@{/pacotes/{id}/editar (id=${pacote.id})}">EDITAR
-
-                        </a>
-                        <a type="button" th:href="@{/pacotes/{id}/excluir (id=${pacote.id})}"
-                            onclick="return confirm('Tem certeza que deseja excluir o pacote?');">EXCLUIR
-                        </a>
-                    </div>
-                <td>
-            </tr>
-        </tbody>
-    </table>
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+            <menu>
+                <li><a th:href="@{/usuarios}">Usuários</a></li>
+                <li><a th:href="@{/passagens}">Passagens</a></li>
+                <li><a class="active" th:href="@{/pacotes}">Pacotes</a></li>
+                <li><a th:href="@{/viagens}">Viagens</a></li>
+                <li> <a th:href="@{/logout}">Logout</a></li>
+            </menu>
+        </nav>
+    </header>
+    <main>
+        <section class="section1">
+            <table>
+                <caption>Pacotes Cadastrados</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do Pacote</th>
+                        <th>Cidade de Destino</th>
+                        <th>Data da Ida</th>
+                        <th>Data da Volta</th>
+                        <th>Dias de Hospedagem</th>
+                        <th>Promoção</th>
+                        <th>Passagens Origem : Destino : ID</th>
+                        <th>Preço</th>
+                        <th sec:authorize="hasAuthority('ADMIN')">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="pacote : ${pacotes}">
+                        <td th:text="${pacote.id}">ID</td>
+                        <td th:text="${pacote.nome}">Praias Litoral Sul</td>
+                        <td th:text="${pacote.destino}">Recife</td>
+                        <td th:text="${#temporals.format(pacote.ida, 'dd-MM-yyyy HH:mm')}">Ida</td>
+                        <td th:text="${#temporals.format(pacote.volta, 'dd-MM-yyyy HH:mm')}">Volta</td>
+                        <td th:text="${pacote.diasHospedagem}"></td>
+                        <td th:text="${pacote.promocao}">TRUE</td>
+                        <td>
+                            <span style="display: block;" th:each="passagem : ${pacote.passagensP}"
+                                th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
+                            </span>
+                        </td>
+                        <td th:text="${#numbers.formatCurrency(pacote.preco)}">6.300,00</td>
+                        <td class="bts" sec:authorize="hasAuthority('ADMIN')">
+                            <div class="buttons">
+                                <a type="button" th:href="@{/pacotes/{id} (id=${pacote.id})}">DETALHES</a>
+                                <a type="button" th:href="@{/pacotes/{id}/editar (id=${pacote.id})}">EDITAR</a>
+                                <a type="button" th:href="@{/pacotes/{id}/excluir (id=${pacote.id})}"
+                                    onclick="return confirm('Tem certeza que deseja excluir o pacote?');">EXCLUIR</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a sec:authorize="hasAuthority('ADMIN')" class="btnCadastro" th:href="@{/pacotes/cadastrar}">CADASTRAR
+                PACOTE</a>
+        </section>
+    </main>
 </body>
 
 </html>

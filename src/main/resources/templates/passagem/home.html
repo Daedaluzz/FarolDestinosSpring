@@ -56,13 +56,14 @@
                                 <a type="button" th:href="@{/passagens/{id} (id=${passagem.id})}">DETALHES</a>
                                 <a type="button" th:href="@{/passagens/{id}/editar (id=${passagem.id})}">EDITAR</a>
                                 <a type="button" th:href="@{/passagens/{id}/excluir (id=${passagem.id})}"
-                                onclick="return confirm('Tem certeza que deseja excluir a passagem?');">EXCLUIR</a>
+                                    onclick="return confirm('Tem certeza que deseja excluir a passagem?');">EXCLUIR</a>
                             </div>
-                        </tr>
+                        </td>
                     </tr>
                 </tbody>
-                </table>
-                <a sec:authorize="hasAuthority('ADMIN')" class="btnCadastro"  th:href="@{/passagens/cadastrar}">CADASTRAR PASSAGEM</a>
+            </table>
+            <a sec:authorize="hasAuthority('ADMIN')" class="btnCadastro" th:href="@{/passagens/cadastrar}">CADASTRAR
+                PASSAGEM</a>
         </section>
     </main>
 </body>

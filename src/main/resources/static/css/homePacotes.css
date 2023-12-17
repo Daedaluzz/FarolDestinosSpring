@@ -1,0 +1,143 @@
+/* CSS Document */
+:root {
+    --yellow: #fbdb2c;
+    --blue: #2BC6EE;
+    --dark-grey: #49494C;
+    --light-grey: #f4f4f4;
+}
+
+main {
+    padding: 2rem;
+    
+}
+.section1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+table {
+    border-collapse: collapse;
+}
+
+caption {
+    font-size: 2rem;
+    margin: 2rem;
+}
+
+th,
+td {
+    border: solid .1rem var(--dark-grey);
+    padding: 1rem;
+    height: 3rem;
+}
+
+tr:hover {
+    background-color: var(--light-grey);
+}
+
+th {
+    background-color: var(--dark-grey);
+    color: var(--light-grey);
+}
+
+.bts{
+    padding: 0;
+}
+.buttons {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.buttons a {
+    flex: 1 1 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    font-weight: bold;
+    color: var(--light-grey);
+    text-shadow: .1rem .2rem .2rem #0000003a;
+}
+
+.buttons a:nth-child(1) {
+    background-color: var(--blue);
+    border-right: solid 1px var(--dark-grey);
+}
+
+.buttons a:nth-child(2) {
+    background-color: var(--yellow);
+    border-right: solid 1px var(--dark-grey);
+}
+
+.buttons a:nth-child(3) {
+    background-color: rgb(255, 46, 46);
+}
+
+.buttons a:hover {
+    transform: scale(1.01);
+    color: white;
+}
+.btnCadastro{
+    font-size: 2rem;
+    background-color: var(--dark-grey);
+    padding: 1rem 1rem;
+    color: var(--light-grey);
+    border-radius: 0.5rem;
+}
+.btnCadastro:hover{
+    transform: scale(1.01);
+    color: white; 
+}
+
+@media screen and (max-width: 980px){
+   thead{
+    display: none;
+   }
+    td{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        height: 100%;
+    }
+    td:first-child{
+    justify-content: center;
+        background-color: var(--dark-grey);
+        color: var(--light-grey);
+    }
+    td:last-child{
+        margin-bottom: 2rem;
+    }
+    td:first-child::before{
+        content: 'ID:';
+    }
+    td:nth-child(2)::before{
+        content: 'Nome do Pacote:';
+    }
+    td:nth-child(3)::before{
+        content: 'Cidade de Destino:';
+    }
+    td:nth-child(4)::before{
+        content: 'Data de Ida:';
+    }
+    td:nth-child(5)::before{
+        content: 'Data de Volta:';
+    }
+    td:nth-child(6)::before{
+        content: 'Dias de Hospedagem:';
+    }
+    td:nth-child(7)::before{
+        content: 'Promoção:';
+    }
+    td:nth-child(8)::before{
+        content: 'Passagens:';
+    }
+    td:nth-child(9)::before{
+        content: 'Preço:';
+    }
+}
