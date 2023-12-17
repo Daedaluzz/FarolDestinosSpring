@@ -11,8 +11,8 @@
 
 ### Sobre o Projeto
 
-[![Usuários cadastrados][Tabela de Usuários]](![image](https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/c6390e2c-9c7c-475b-9cf8-a5830af7226d)
-)
+![Screenshot 2023-12-17 161324](https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/95be57f0-88e4-47a5-af9d-ef95b8646751)
+
 
 Esse projeto faz parte dos meus estudos em programação orientada a objetos, manupulação de dados para MySQL e integração entre front-end e back-end.
 O projeto consiste em um sistema interno de cadastro e manipulação de dados do meu projeto de agência de viagens que estou desenvolvendo em paralelo. Esse projeta conta com sistema de autenticação de usuário, criptografia de senha e ações restristas ou não baseado no nível de acesso do usuário(administrador ou usuário padrão).
