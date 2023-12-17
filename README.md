@@ -1,7 +1,9 @@
 <br/>
 <div align="center">
   <a href="https://github.com/Daedaluzz/FarolDestinosSpring">
-![logobranco](https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/1c7bdffc-2fc2-44ac-b324-a4add69da751)
+
+![logobranco](https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/a31cd0e5-21ad-44f7-9f10-36a38010f585)
+
  </a>
 
 <h3 align="center">Farol Destinos SpringMVC</h3>
@@ -47,5 +49,3 @@ Project Link: [https://github.com/Daedaluzz/FarolDestinosSpring](https://github.
 <a href="https://www.linkedin.com/in/ber-arthur/">![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
 </a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-![dakrgreylogo-png-54x150png](https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/a66050ae-53e7-4f31-9a25-6d3331d01586)
