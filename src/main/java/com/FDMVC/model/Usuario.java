@@ -24,7 +24,7 @@ public class Usuario extends Entidade{
 	@Column(nullable = false, length = 80, unique = true)
 	private String email;
 	
-	@Column(nullable = false, length = 15)
+	@Column(nullable = false, length = 16)
 	private String telefone;
 	
     @Column(name = "data_nascimento", nullable = false)

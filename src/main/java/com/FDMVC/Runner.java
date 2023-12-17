@@ -23,11 +23,11 @@ public class Runner implements CommandLineRunner{
 		//usuario//
 		Usuario admin0 = new Usuario();
 		admin0.setId((long) 1);
-		admin0.setCpf("77777777777");
+		admin0.setCpf("777.888.999-44");
 		admin0.setDataNascimento(LocalDate.now());
 		admin0.setDataNascimento(LocalDate.now());
 		admin0.setNome("admin");
-		admin0.setTelefone("31977777777");
+		admin0.setTelefone("(31)99988-7744");
 		admin0.setEmail("admin@admin.com");
 		admin0.setTipoUsuario(TipoUsuario.ADMIN);
 		String senhaEncriptada = SenhaUtils.encode("0000");
