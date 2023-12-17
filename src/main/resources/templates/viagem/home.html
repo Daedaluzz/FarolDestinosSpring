@@ -5,59 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/homeViagens.css}">
 </head>
 
 <body>
-    <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
-    <br><br>
-    <a th:href="@{/logout}">
-        Logout
-    </a>
-    <br><br>
-    <a th:href="@{/viagens/cadastrar}">CADASTRAR VIAGEM</a>
-    <br>
-    <table class="table table-hover text-nowrap">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome do Cliente</th>
-                <th>Pacotes</th>
-                <th>Passagens</th>
-                <th>Data da Compra</th>
-                <th>Preço Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="viagem : ${viagens}">
-                <td th:text="${viagem.id}">ID</td>
-                <td th:text="${viagem.usuario.nome}"></td>
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+            <menu>
+                <li><a th:href="@{/usuarios}">Usuários</a></li>
+                <li><a th:href="@{/passagens}">Passagens</a></li>
+                <li><a th:href="@{/pacotes}">Pacotes</a></li>
+                <li><a class="active" th:href="@{/viagens}">Viagens</a></li>
+                <li> <a th:href="@{/logout}">Logout</a></li>
+            </menu>
+        </nav>
+    </header>
+    <main>
+        <section class="section1">
+            <table>
+                <caption>Viagens Cadastradas</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do Cliente</th>
+                        <th>Pacotes</th>
+                        <th>Passagens</th>
+                        <th>Data da Compra</th>
+                        <th>Preço Total</th>
+                        <th sec:authorize="hasAuthority('ADMIN')" >Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="viagem : ${viagens}">
+                        <td th:text="${viagem.id}"></td>
+                        <td th:text="${viagem.usuario.nome}"></td>
 
-                <td><span style="display: block;" th:each="pacote : ${viagem.pacotes}"
-                        th:text="${pacote.nome}+' : '+${pacote.id}">
-                    </span></td>
-                    <td>
-                <span style="display: block;" th:each="passagem : ${viagem.passagensV}"
-                    th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
-                </span>
-            </td>
-                <td th:text="${#temporals.format(viagem.dataCompra, 'dd-MM-yyyy HH:mm')}"></td>
-                <td th:text="${viagem.precoTotal}">ID</td>
-                <td>
-                    <div>
-                        <a type="button" th:href="@{/viagens/{id} (id=${viagem.id})}">DETALHES
-
-                        </a>
-                        <a type="button" th:href="@{/viagens/{id}/editar (id=${viagem.id})}">EDITAR
-
-                        </a>
-                        <a type="button" th:href="@{/viagens/{id}/excluir (id=${viagem.id})}"
-                            onclick="return confirm('Tem certeza que deseja excluir a viagem?');">EXCLUIR
-                        </a>
-                    </div>
-                <td>
-            </tr>
-        </tbody>
-    </table>
+                        <td><span style="display: block;" th:each="pacote : ${viagem.pacotes}"
+                                th:text="${pacote.nome}+' : '+${pacote.id}">
+                            </span></td>
+                        <td>
+                            <span style="display: block;" th:each="passagem : ${viagem.passagensV}"
+                                th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
+                            </span>
+                        </td>
+                        <td th:text="${#temporals.format(viagem.dataCompra, 'dd-MM-yyyy HH:mm')}"></td>
+                        <td th:text="${#numbers.formatCurrency(viagem.precoTotal)}"></td>
+                        <td sec:authorize="hasAuthority('ADMIN')" class="bts">
+                            <div class="buttons">
+                                <a type="button" th:href="@{/viagens/{id} (id=${viagem.id})}">DETALHES</a>
+                                <a type="button" th:href="@{/viagens/{id}/editar (id=${viagem.id})}">EDITAR</a>
+                                <a type="button" th:href="@{/viagens/{id}/excluir (id=${viagem.id})}"
+                                    onclick="return confirm('Tem certeza que deseja excluir a viagem?');">EXCLUIR</a>
+                            </div>
+                    </tr>
+                </tbody>
+            </table>
+            <a sec:authorize="hasAuthority('ADMIN')" class="btnCadastro" th:href="@{/viagens/cadastrar}">CADASTRAR VIAGEM</a>
+        </section>
+    </main>
 </body>
 
 </html>

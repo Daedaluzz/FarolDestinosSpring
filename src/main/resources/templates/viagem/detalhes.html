@@ -3,26 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Detalhes da Viagem</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/detalhes.css}">
 </head>
 <body>
-
-    <h1>Dados da Viagem</h3>
-        <h4>ID</p>
-        <p th:text="${viagem.id}"></p>
-        <h4>Nome do Cliente</h4>
-        <p th:text="${viagem.usuario.nome}">Praias Litoral Sul</p>
-        <h4>Pacotes da Viagem</h4>
-        <p style="display: block;" th:each="pacote : ${viagem.pacotes}" th:text="${pacote.nome}+' : '+${pacote.id}"></p>
-        <h4>Passagens</h4>
-        <p style="display: block;" th:each="passagem : ${viagem.passagensV}"
-        th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}">
-        <h4>Data da Compra</h4>
-        <p th:text="${#temporals.format(viagem.dataCompra)}"></p>
-        <h4>Preço Total</h4>
-        <p th:text="${#numbers.formatCurrency(viagem.precoTotal)}">6.300,00</p>
-    <a th:href="@{/viagens}">VIAGENS</a>
-
-    
+    <header>
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <nav>
+            <menu>
+                <li><a th:href="@{/usuarios}">Usuários</a></li>
+                <li><a th:href="@{/passagens}">Passagens</a></li>
+                <li><a th:href="@{/pacotes}">Pacotes</a></li>
+                <li><a th:href="@{/viagens}">Viagens</a></li>
+                <li> <a th:href="@{/logout}">Logout</a></li>
+            </menu>
+        </nav>
+    </header>
+    <main>
+        <section class="section1">
+            <h2>Dados da Viagem</h2>
+            <div class="usuarioElement">
+                <h4>ID</h4>
+                <p th:text="${viagem.id}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Nome do Cliente</h4>
+                <p th:text="${viagem.usuario.nome}">Praias Litoral Sul</p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Pacotes da Viagem</h4>
+                <p style="display: block;" th:each="pacote : ${viagem.pacotes}"
+                    th:text="${pacote.nome}+' : '+${pacote.id}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Passagens</h4>
+                <p style="display: block;" th:each="passagem : ${viagem.passagensV}"
+                    th:text="${passagem.cidadeOrigem}+' : '+${passagem.cidadeDestino}+' : '+${passagem.id}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Data da Compra</h4>
+                <p th:text="${#temporals.format(viagem.dataCompra)}"></p>
+            </div>
+            <div class="usuarioElement">
+                <h4>Preço Total</h4>
+                <p th:text="${#numbers.formatCurrency(viagem.precoTotal)}">6.300,00</p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
