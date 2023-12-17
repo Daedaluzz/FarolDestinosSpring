@@ -34,7 +34,7 @@ td {
     height: 3rem;
 }
 
-tbody tr:hover {
+tr:hover {
     background-color: var(--light-grey);
 }
 
@@ -102,7 +102,7 @@ th {
         display: flex;
         align-items: center;
         gap: 1rem;
-
+        height: 100%;
     }
     td:first-child{
     justify-content: center;

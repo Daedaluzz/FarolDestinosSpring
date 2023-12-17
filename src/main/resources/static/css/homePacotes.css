@@ -110,6 +110,9 @@ th {
         background-color: var(--dark-grey);
         color: var(--light-grey);
     }
+    span{
+        box-shadow: .2rem .1rem .5rem #0000004a;
+    }
     td:last-child{
         margin-bottom: 2rem;
     }

@@ -7,21 +7,23 @@
     <title>Pacotes</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/homePacotes.css}">
+    <script src="/js/nav.js" defer></script>
 </head>
 
 <body>
     <header>
-        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <a th:href="@{/perfil}" class="usu" sec:authentication="name"></a>
+        <button class="mobile-toggle" aria-controls="menu" aria-expanded="false"><span class="sr-only">Menu</span></button>
         <nav>
-            <menu>
-                <li><a th:href="@{/usuarios}">Usuários</a></li>
-                <li><a th:href="@{/passagens}">Passagens</a></li>
-                <li><a class="active" th:href="@{/pacotes}">Pacotes</a></li>
-                <li><a th:href="@{/viagens}">Viagens</a></li>
-                <li> <a th:href="@{/logout}">Logout</a></li>
-            </menu>
+        <menu class="primary-navigation" id="menu" data-visible="false">
+        <li><a th:href="@{/usuarios}">Usuários</a></li>
+        <li><a th:href="@{/passagens}">Passagens</a></li>
+        <li><a class="active" th:href="@{/pacotes}">Pacotes</a></li>
+        <li><a th:href="@{/viagens}">Viagens</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
+        </menu>
         </nav>
-    </header>
+        </header>
     <main>
         <section class="section1">
             <table>

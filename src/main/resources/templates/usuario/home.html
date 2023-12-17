@@ -7,12 +7,14 @@
     <title>Usuários</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/home.css}">
+    <script src="/js/nav.js" defer></script>
 </head>
 <body>
     <header>
-        <a th:href="@{/perfil}" class="d-block" sec:authentication="name"></a>
+        <a th:href="@{/perfil}" class="usu" sec:authentication="name"></a>
+        <button class="mobile-toggle" aria-controls="menu" aria-expanded="false"><span class="sr-only">Menu</span></button>
         <nav>
-        <menu>
+        <menu class="primary-navigation" id="menu" data-visible="false">
         <li><a class="active" th:href="@{/usuarios}">Usuários</a></li>
         <li><a th:href="@{/passagens}">Passagens</a></li>
         <li><a th:href="@{/pacotes}">Pacotes</a></li>

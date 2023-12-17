@@ -36,15 +36,22 @@ input:focus{
 .checks{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    border: solid 1px var(--dark-grey);
+    border-radius: .5rem;
 }
 .checks label{
     font-size: 1.5rem;
+}
+.checks span{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 .checks input{
  height: 1.5rem;
  width: 1.5rem;
  margin: 0.5rem;
- 
 }
 select{
     height: 4rem;
