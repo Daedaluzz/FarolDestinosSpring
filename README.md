@@ -51,4 +51,11 @@ Project Link: [https://github.com/Daedaluzz/FarolDestinosSpring](https://github.
 
 <a href="https://www.linkedin.com/in/ber-arthur/">![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
 </a>
+
+## Modelagem de Dados
+
+<img src="https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/7bde22de-3758-47b0-9429-fb07910b51e0" width="400" height="400">
+
+<img src ="https://github.com/Daedaluzz/FarolDestinosSpring/assets/140291514/12eda9f8-acb7-4b22-b166-93401abad350" width="400" height="400">
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
